@@ -1,8 +1,18 @@
 <?
+// ************************************************************************************//
+// * D€ Source 2017
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 1.7
+// * 
+// * Copyright (c) 2017 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
 require_once(dirname(__FILE__) . "/include/bittorrent.php");
 dbconn();
 loggedinorreturn();
-
 check_access(UC_USER);
 
 $abfrage = "SELECT 
@@ -20,9 +30,7 @@ if(mysql_num_rows($query) == 0 && $CURUSER[xxx] == "no")
 {
 echo "
             <div>
-                <a href='tfilesinfo.php?id=notfound'>
-					<img src='" . $GLOBALS["DESIGN_PATTERN"] . "/nofiles.png'/>	
-		</a>
+					<img src='" . $GLOBALS["DESIGN_PATTERN"] . "/nofiles.png'/>
             </div>";
 }
 else
