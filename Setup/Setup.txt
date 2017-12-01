@@ -1,4 +1,4 @@
-D€ Source aka X264 Source - Private Bittorrent Tracker Source
+Dâ‚¬ Source aka X264 Source - Private Bittorrent Tracker Source
 
 Backend ACP Log in: Nickname: security | Passwort: egc2k17
 
@@ -7,12 +7,20 @@ Main requirements: MySQL memcache for V1 and V2 php 5.6.x SSL
 Source language: german
 
 Server Install:
+1. apt-get install apache2
+2. apt-get install mysql-server
+3. apt-get install php5-cli php5-mysql php5-curl php5-json
+4. apt-get install memcached php5-memcache php5-memcached
+5. apt-get install phpmyadmin
 
-apt-get install apache2
-apt-get install mysql-server
-apt-get install php5-cli php5-mysql php5-curl php5-json
-apt-get install memcached php5-memcache php5-memcached
-apt-get install phpmyadmin
+chmod settings:
+1. chmod 0777 Folder/cache And all files
+2. chmod 0777 Folder/_x264_
+3. chmod 0777 Folder/imdb-data
+4. chmod 0777 Folder/forum_attachments
+5. chmod 0777 Folder/include/templates_c
+6. chmod 0777 Folder/pic/smilies
+
 Source Install:
 
 create your database
