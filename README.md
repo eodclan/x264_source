@@ -1,18 +1,16 @@
 # x264_source
 D€ Source aka X264 Source - Private Bittorrent Tracker Source
+
 Backend ACP Log in:
 Nickname: security | Passwort: egc2k17
 
-Main requirements
-
+Main requirements:
 MySQL
 memcache for V1 and V2
 php 5.6.x
 SSL
 
 Source language: german 
-
-Download
 
 Server Install:
 1. apt-get install apache2
