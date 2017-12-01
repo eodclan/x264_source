@@ -21,7 +21,7 @@ Server Install:
 
 chmod settings:
 1. chmod 0777 Folder/cache - And all files
-2. chmod 0777 Folder/_x264_
+2. chmod 0777 Folder/ _x264_
 3. chmod 0777 Folder/imdb-data
 4. chmod 0777 Folder/forum_attachments
 5. chmod 0777 Folder/include/templates_c
