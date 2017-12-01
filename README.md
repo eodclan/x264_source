@@ -19,6 +19,14 @@ Server Install:
 4. apt-get install memcached php5-memcache php5-memcached
 5. apt-get install phpmyadmin
 
+chmod settings:
+1. chmod 0777 Folder/cache - And all files
+2. chmod 0777 Folder/_x264_
+3. chmod 0777 Folder/imdb-data
+4. chmod 0777 Folder/forum_attachments
+5. chmod 0777 Folder/include/templates_c
+6. chmod 0777 Folder/pic/smilies
+
 Source Install:
 1. create your database
 2. edit the db_setup.php for your database access data
