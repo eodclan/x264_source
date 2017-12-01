@@ -1,9 +1,21 @@
 <?php
-require "include/bittorrent.php";
+// ************************************************************************************//
+// * D€ Source 2017
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 1.7
+// * 
+// * Copyright (c) 2017 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/bittorrent.php");
 dbconn();
 loggedinorreturn();
 check_access(UC_SYSOP);
 security_tactics();
+
 if (get_user_class() >= UC_TEAMLEITUNG) {
 if($_GET['id1']) {
 $id4 = sqlesc($_GET[id1]);
@@ -119,7 +131,7 @@ header("Location:  " . $_SERVER['PHP_SELF'] . "");
 }
 x264_bootstrap_header("Partner Verwaltung");
 
-if (get_user_class() < UC_MODERATOR)
+if (get_user_class() < UC_TEAMLEITUNG)
 {
   stdmsg("Sorry...", "Zutritt verweigert!!!");
   stdfoot();
@@ -150,12 +162,12 @@ echo"
                                     </div>
                                 </div>
                                 <div class='card-block'>
-                  <ul class='chart-legend clearfix'>
-                    <li>Name vom Partner: <br /><input type='text' size='50' value='".$titel."' name='pa_name'/></li>
-                    <li>Banner-Url: <br /><input type='text' size='50' value='$banner' name='pa_banurl'/></li>
-                    <li>Url zur Seite: <br /><input type='text' size='50' value='$url' name='pa_url'/></li>
-                    <li><br /><input value='Add' type='submit'/></li>					
-                  </ul>
+									<ul class='chart-legend clearfix'>
+										<li>Name vom Partner: <br /><input type='text' size='50' value='".$titel."' name='pa_name'/></li>
+										<li>Banner-Url: <br /><input type='text' size='50' value='$banner' name='pa_banurl'/></li>
+										<li>Url zur Seite: <br /><input type='text' size='50' value='$url' name='pa_url'/></li>
+										<li><br /><input value='Add' type='submit'/></li>					
+									</ul>
                                 </div>
                             </div>
                         </div>
@@ -176,18 +188,18 @@ echo"
                         <div class='col-lg-12'>
                             <div class='card'>
                                 <div class='card-header'>
-                                    <i class='fa fa-edit'></i>Partner Liste
+                                    <i class='fa fa-edit'></i>Partner - ".$titel."
                                     <div class='card-actions'>
                                         <a href='#' class='btn-close'><i class='icon-close'></i></a>
                                     </div>
                                 </div>
                                 <div class='card-block'>
-                  <ul class='chart-legend clearfix'>
-                    <li>".$titel."</li>
-                    <li><a href=".$url." target=_blank><IMG SRC=".$banner."  WIDTH=440 HEIGHT=100 border=0></a></li>
-                    <li><a href='". $_SERVER['PHP_SELF'] . "?editid=$id'><input value='Edit' type='submit'/></a></li>
-                    <li><a href='". $_SERVER['PHP_SELF'] . "?id1=$id'><input value='Delete' type='submit'/></a></li>					
-                  </ul>
+									<ul class='chart-legend clearfix'>
+										<li>".$titel."</li>
+										<li><a href=".$url." target=_blank><IMG SRC=".$banner."  WIDTH=440 HEIGHT=100 border=0></a></li>
+										<li><a href='". $_SERVER['PHP_SELF'] . "?editid=$id'><input value='Edit' type='submit'/></a></li>
+										<li><a href='". $_SERVER['PHP_SELF'] . "?id1=$id'><input value='Delete' type='submit'/></a></li>					
+									</ul>
                                 </div>
                             </div>
                         </div>
