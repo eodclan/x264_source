@@ -1,20 +1,20 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2017
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
-// * Version: 4.0
+// * Version: 1.7
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
+// ************************************************************************************// 
 function ctracker()
 {
-  global $_SERVER;
-  $cracktrack = $_SERVER['QUERY_STRING'];
-  $wormprotector = array('chr(', 'chr=', 'chr%20', '%20chr', 'wget%20', '%20wget', 'wget(',
+	global $_SERVER;
+	$cracktrack = $_SERVER['QUERY_STRING'];
+	$wormprotector = array('chr(', 'chr=', 'chr%20', '%20chr', 'wget%20', '%20wget', 'wget(',
  			             'cmd=', '%20cmd', 'cmd%20', 'rush=', '%20rush', 'rush%20',
                    'union%20', '%20union', 'union(', 'union=', 'echr(', '%20echr', 'echr%20', 'echr=',
                    'esystem(', 'esystem%20', 'cp%20', '%20cp', 'cp(', 'mdir%20', '%20mdir', 'mdir(',
@@ -38,15 +38,14 @@ function ctracker()
                    '<script', '/robot.txt' ,'/perl' ,'mod_gzip_status', 'db_mysql.inc', '.inc', 'select%20from',
                    'select from', 'drop%20', '.system', 'getenv', 'http_', '_php', 'php_', 'phpinfo()', '<?php', '?>', 'sql=');
 
-  $checkworm = str_replace($wormprotector, '*', $cracktrack);
+	$checkworm = str_replace($wormprotector, '*', $cracktrack);
 
-  if ($cracktrack != $checkworm)
-  {
-    $cremotead = $_SERVER['REMOTE_ADDR'];
-    $cuseragent = $_SERVER['HTTP_USER_AGENT'];
-    write_log("ctracker", "Attack detected! $cremotead - $cuseragent");
-    die( "Attack detected! <br /><br /><b>Dieser Angriff wurde erkannt und blockiert:</b><br />$cremotead - $cuseragent" );
-  }
+	if ($cracktrack != $checkworm)
+	{
+		$cremotead = $_SERVER['REMOTE_ADDR'];
+		$cuseragent = $_SERVER['HTTP_USER_AGENT'];
+		write_log("ctracker", "Attack detected! $cremotead - $cuseragent");
+		die( "Attack detected! <br /><br /><b>Dieser Angriff wurde erkannt und blockiert:</b><br />$cremotead - $cuseragent" );
+	}
 }
-
 ?>

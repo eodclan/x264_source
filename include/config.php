@@ -1,11 +1,20 @@
 <?php
+// ************************************************************************************//
+// * D€ Source 2017
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 1.7
+// * 
+// * Copyright (c) 2017 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+
+// MySQL connect access data file
 require_once "db_setup.php";
-/************************************************************
-* Tracker configuration
-* 
-* Please read the comments before changing anything!
-* Database configuration: see secrets.php
-**************************************************************/
+
+// MySQL connect engine
 mysql_connect("$mysql_host", "$mysql_user", "$mysql_pass");
 mysql_select_db($mysql_db);
 
@@ -17,6 +26,7 @@ while($carr=mysql_fetch_assoc($cres))
   $GLOBALS[$name] = $wert;
 }
 
+// defines and more
 define ("CLIENT_AUTH_IP", "0");
 define ("CLIENT_AUTH_PASSKEY", "1");
 
