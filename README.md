@@ -5,10 +5,10 @@ Backend ACP Log in:
 Nickname: security | Passwort: egc2k17
 
 Main requirements:
-MySQL
-memcache for V1 and V2
-php 5.6.x
-SSL
+1. MySQL
+2. memcache for V1 and V2
+3. php 5.6.x
+4. SSL
 
 Source language: german 
 
