@@ -1,22 +1,20 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2017
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
-// * Version: 3.0
+// * Version: 1.7
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
+// ************************************************************************************// 
 ob_start("ob_gzhandler");
 require "include/bittorrent.php";
 
 hit_start();
-
 dbconn(true);
-
 loggedinorreturn();
 
 $agent = $_SERVER['HTTP_USER_AGENT'];
@@ -74,27 +72,27 @@ if ($res)
 
     if ($first)
     print "
-		<div class='table table-bordered table-striped table-condensed col-md-12'>
+					<div class='table table-bordered table-striped table-condensed col-md-12'>
                         <div class='drag ui-sortable-handle'>
                              <div class='sorting_1'><span class='normalfont'><i class='fa fa-newspaper-o'></i> ".htmlspecialchars($arr["title"])." </span><span style='float:right;' class='normalfont'><i class='fa fa-calendar-times-o'></i> Von <a class='altlink' href='userdetails.php?id=".$user_id."'>".$username."</a>, ".$news_day.", ".$news_date."</span></div>
-			</div>
-		</div>";
+						</div>
+					</div>";
     if ($first)
       print "";
     else
       print "";		
     print "
-		<div class='table table-bordered table-striped table-condensed col-md-12'>
+					<div class='table table-bordered table-striped table-condensed col-md-12'>
                         <div class='drag ui-sortable-handle'> 
-				<div class='sorting_1'>".(format_comment($arr['body']))."</div>
-			</div>
-		</div>";
+							<div class='sorting_1'>".(format_comment($arr['body']))."</div>
+						</div>
+					</div>";
     $first = FALSE;
   }
 
 } else {
 print "
-				<i class='fa fa-check-square-o'></i> Keine News vorhanden!";
+					<i class='fa fa-check-square-o'></i> Keine News vorhanden!";
 
 }
 print "
