@@ -1,0 +1,62 @@
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i>Staff Rules Übersicht
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+              <table id='example1' class='table table-bordered table-striped'>
+                <thead>
+                <tr>
+                  <td>
+		{foreach item=categories_list from=$categories}
+			<div name="{$categories_list.SHORT}" class="rules_ul">
+			{foreach item=aq_list from=$aq}
+				{if $categories_list.ID == $aq_list.CAT_ID}
+				<div class="x264_title_tablename">{$aq_list.QUESTION}</div>
+				{/if}
+			{/foreach}
+		{/foreach}
+                 </td>
+				 </tr>
+                </tbody>
+              </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>
+		  
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i>Staff Rules
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>		  
+              <table id='example1' class='table table-bordered table-striped'>
+                <thead>
+                <tr>
+                  <td>		  
+{foreach item=categories_list_1 from=$categories}
+	{foreach item=aq_list_1 from=$aq}
+		{if $categories_list_1.ID == $aq_list_1.CAT_ID}
+			{$aq_list_1.ANSWER}
+		{/if}
+	{/foreach}
+{/foreach} 
+                 </td>
+				 </tr>
+                </tbody>
+              </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>

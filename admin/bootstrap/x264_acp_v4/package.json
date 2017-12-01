@@ -1,0 +1,15 @@
+{
+  "name": "X264 Ajax UI",
+  "version": "4.0",
+  "description": "Bootstrap Admin System for the X264 Source.",
+  "main": "backend_acp.php",
+  "dependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Str1k3r aka D@rk-€vil™",
+  "copyright": "Powered by X264 Source Version 6.0.1 Premium | Copyright © 2015 - 2017 D@rk-€vil™. All rights reserved."
+}

@@ -1,0 +1,51 @@
+
+		{foreach item=categories_list from=$categories}
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-user-secret'></i><a href="#{$categories_list.SHORT}" title="{$categories_list.SHORT}">{$categories_list.NAME}</a>
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+			<div name="{$categories_list.SHORT}">
+			{foreach item=aq_list from=$aq}
+				{if $categories_list.ID == $aq_list.CAT_ID}
+				<div><center><a href="#{$categories_list.SHORT}{$aq_list.ID}" title="{$categories_list.SHORT}{$aq_list.ID}">{$aq_list.QUESTION}</a></center></div>
+				{/if}
+			{/foreach}
+			</div>
+		{/foreach}
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>
+
+{foreach item=categories_list_1 from=$categories}
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-user-secret'></i><a id="{$categories_list_1.SHORT}" name="{$categories_list_1.SHORT}"></a>{$categories_list_1.NAME}
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+	{foreach item=aq_list_1 from=$aq}
+		{if $categories_list_1.ID == $aq_list_1.CAT_ID}
+			<div>
+				<div><span class="normalfont"><a id="{$categories_list_1.SHORT}{$aq_list_1.ID}" name="{$categories_list_1.SHORT}{$aq_list_1.ID}"></a>{$aq_list_1.QUESTION}</span></div>
+				<div>{$aq_list_1.ANSWER}</div>
+			</div>
+		{/if}
+	{/foreach}
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>
+{/foreach}

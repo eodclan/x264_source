@@ -1,0 +1,46 @@
+	                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i>Kategorie erstellen
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+              <table id='example1' class='table table-bordered table-striped'>
+                <thead>
+                <tr>
+                  <td>
+{if $CREATE_CATEGORY == 1}
+<div class="tableinborder" style="width:750px;">
+	<form method="post" name="createCategory" action="rulesadmin.php?action=docreatecategory">
+		<div class="tableb">Name</div><div class="tablea"><input type="text" name="name" value="" /></div>
+		<div class="tableb">Kuerzel</div><div class="tablea"><input type="text" name="short" value="" /></div>
+		<div class="tableb"><input type="submit" name="submit" value="Abschicken"></div>
+	</form>
+</div>
+{/if}
+{if $CREATE_CATEGORY_DO == 1}
+	{if $EMPTY == 1}
+	<div class="tableinborder" style="width:750px;">
+		<div class="tabletitle"><span class="normalfont">Kategorie erstellen</span></div>
+		<div class="tableb">Du musst alle Felder ausfuellen! <a href="rulesadmin.php?action=createcategory" title="">Zum Formular</a></div>
+	</div>	
+	{/if}
+	{if $SUCCESS == 1}
+	<div class="tableinborder" style="width:750px;">
+		<div class="tabletitle"><span class="normalfont">Kategorie erstellen</span></div>
+		<div class="tableb">Die Kategorie wurde erfolgreich angelegt! <a href="rulesadmin.php" title="">Zum Rules Admin</a></div>
+	</div>	
+	{/if}
+{/if}
+                 </td>
+				 </tr>
+                </tbody>
+              </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>

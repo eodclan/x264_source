@@ -1,0 +1,7 @@
+{
+  "name": "X264 Ajax UI",
+  "version": "4.0",
+  "description": "Bootstrap Admin System for the X264 Source.",
+  "main": "backend_acp.php",
+  "private": true
+}

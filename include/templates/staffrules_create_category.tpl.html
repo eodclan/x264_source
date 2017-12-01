@@ -1,0 +1,84 @@
+{if $CREATE_CATEGORY == 1}
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i> Kategorie erstellen
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+              <table id='example1' class='table table-bordered table-striped'>
+                <thead>
+                <tr>
+                  <td>
+	<form method="post" name="createCategory" action="staffrulesadmin.php?action=docreatecategory">
+		<div class="tableb">Name</div><div class="tablea"><input type="text" name="name" value="" /></div>
+		<div class="tableb">Kuerzel</div><div class="tablea"><input type="text" name="short" value="" /></div>
+		<div class="tableb"><input type="submit" name="submit" value="Abschicken"></div>
+	</form>
+                 </td>
+				 </tr>
+                </tbody>
+              </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>
+{/if}
+{if $CREATE_CATEGORY_DO == 1}
+	{if $EMPTY == 1}
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i> Kategorie erstellen
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>	
+              <table id='example1' class='table table-bordered table-striped'>
+                <thead>
+                <tr>
+                  <td>	
+						<a href="staffrulesadmin.php?action=createcategory" title="">Zum Formular</a>
+                 </td>
+				 </tr>
+                </tbody>
+              </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>	
+	{/if}
+	{if $SUCCESS == 1}
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i> Kategorie erstellen
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>	
+              <table id='example1' class='table table-bordered table-striped'>
+                <thead>
+                <tr>
+                  <td>	
+						Die Kategorie wurde erfolgreich angelegt! <a href="staffrulesadmin.php" title="">Zum Staff Rules Admin</a>
+                 </td>
+				 </tr>
+                </tbody>
+              </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>	
+	{/if}
+{/if}

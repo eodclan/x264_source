@@ -1,0 +1,33 @@
+<div class="faq_box" style="width:100%;"> 
+	<div class="faq_head"><span class="normalfont"><a href="admin_panel_manager.php?action=createcategory">Kategorie anlegen</a> | <a href="admin_panel_manager.php?action=createquestion">Funktion anlegen</a></span></div>
+</div>
+<div class="faq_box" style="width:100%;"> 
+	<div class="faq_head"><span class="normalfont">Manager Verwaltung</span></div>
+	<div class="faq_tableb">
+		{foreach item=categories_list from=$categories}
+			{$categories_list.NAME}
+			<div name="{$categories_list.SHORT}" class="faq_ul">
+			{foreach item=aq_list from=$aq}
+				{if $categories_list.ID == $aq_list.CAT_ID}
+				<div class="rules_li"><center><a href="#{$categories_list.SHORT}{$aq_list.ID}" title="{$categories_list.SHORT}{$aq_list.ID}">{$aq_list.QUESTION}</a></center></div>
+				{/if}
+			{/foreach}
+			</div>
+		{/foreach}
+	</div>
+</div>
+{foreach item=categories_list_1 from=$categories}
+<div class="faq_box" style="width:100%;"> 
+	<div class="faq_head"><span class="normalfont"><a id="{$categories_list_1.SHORT}" name="{$categories_list_1.SHORT}"></a>{$categories_list_1.NAME} <a href="admin_panel_manager.php?action=editcategory&cid={$categories_list_1.ID}"><img src="design/x264_default/edit.png" border="0" alt="" /></a><a href="admin_panel_manager.php?action=deletecategory&cid={$categories_list_1.ID}"><img src="design/x264_default/editdelete.png" border="0" alt="" /></a></span></div>
+	<div class="faq_tableb">
+	{foreach item=aq_list_1 from=$aq}
+		{if $categories_list_1.ID == $aq_list_1.CAT_ID}
+		<div class="faq_question_box"> 
+			<div class="faq_tableb"><span class="normalfont"><a id="{$categories_list_1.SHORT}{$aq_list_1.ID}" name="{$categories_list_1.SHORT}{$aq_list_1.ID}"></a>{$aq_list_1.QUESTION}<a href="admin_panel_manager.php?action=editquestion&qid={$aq_list_1.ID}"><img src="design/x264_default/edit.png" border="0" alt="" /></a><a href="admin_panel_manager.php?action=deletequestion&qid={$aq_list_1.ID}"><img src="design/x264_default/editdelete.png" border="0" alt="" /></a></span></div>
+			<div class="faq_tablea">{$aq_list_1.ANSWER}</div>
+		</div>
+		{/if}
+	{/foreach}
+	</div>
+</div>
+{/foreach} 

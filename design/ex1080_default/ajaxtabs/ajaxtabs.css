@@ -1,0 +1,65 @@
+.shadetabs{
+padding: 3px 0;
+margin-left: 0;
+margin-top: 1px;
+margin-bottom: 0;
+font: bold 12px Verdana;
+list-style-type: none;
+text-align: center; /*set to left, center, or right to align the menu as desired*/
+}
+
+.shadetabs li{
+display: inline;
+margin: 0;
+}
+
+.shadetabs li a{
+text-decoration: none;
+padding: 3px 7px;
+margin-right: 3px;
+border: 0px solid ;
+color: #000000;
+background: none;
+}
+
+.shadetabs li a:visited{
+color: #000000;
+}
+
+.shadetabs li a:hover{
+text-decoration: underline;
+color: #000000;
+}
+
+.shadetabs li.selected{
+position: relative;
+top: 1px;
+}
+
+.shadetabs li.selected a{ /*selected main tab style */
+background-color: #2E2E2E;
+border: 1px solid ;
+border-top-color: black;
+border-right-color: black;
+border-left-color: black;
+border-bottom-color: black;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+.shadetabs li.selected a:hover{ /*selected main tab style */
+text-decoration: none;
+}
+
+.contentstyle{
+border: 0px;
+width: 100%;
+margin-bottom: 1em; padding: 5px;
+}
+
+.contentstyle_usercp{
+border: 0px;
+width: 100%;
+margin-bottom: 1em; padding: 5px;
+}

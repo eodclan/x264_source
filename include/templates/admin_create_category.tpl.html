@@ -1,0 +1,53 @@
+{if $CREATE_CATEGORY == 1}
+        <div class='col-md-6'>
+          <div class='box'>
+            <div class='box-header'>
+              <h3 class='box-title'>Kategorie erstellen</h3>
+            </div>
+		<table class='table'>
+			<tr>
+				<td>
+					<form method="post" name="createCategory" action="admin_panel_manager.php?action=docreatecategory">
+						<div class="tableb">Name</div><div class="tablea"><input type="text" name="name" value="" /></div>
+						<div class="tableb">Kuerzel</div><div class="tablea"><input type="text" name="short" value="" /></div>
+						<div class="tableb"><input type="submit" name="submit" value="Abschicken"></div>
+					</form>				
+				</td>
+			</tr>
+		</table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+{/if}
+{if $CREATE_CATEGORY_DO == 1}
+	{if $EMPTY == 1}
+        <div class='col-md-6'>
+          <div class='box'>
+            <div class='box-header'>
+              <h3 class='box-title'>Kategorie erstellen</h3>
+            </div>
+		<table class='table'>
+			<tr>
+				<td>Du musst alle Felder ausfuellen! <a href="admin_panel_manager.php?action=createcategory" title="">Zum Formular</a></td>
+			</tr>
+		</table>
+            </div>
+            <!-- /.box-body -->
+          </div>	
+	{/if}
+	{if $SUCCESS == 1}
+        <div class='col-md-6'>
+          <div class='box'>
+            <div class='box-header'>
+              <h3 class='box-title'>Kategorie erstellen</h3>
+            </div>
+		<table class='table'>
+			<tr>
+				<td>Die Kategorie wurde erfolgreich angelegt! <a href="admin_panel_manager.php" title="">Zur Manager Verwaltung</a></td>
+			</tr>
+		</table>
+            </div>
+            <!-- /.box-body -->
+          </div>	
+	{/if}
+{/if}

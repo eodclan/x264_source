@@ -1,0 +1,67 @@
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i>Staff Rules Admin Übersicht
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+              <table id='example1' class='table table-bordered table-striped'>
+                <thead>
+                <tr>
+                  <td>
+		{foreach item=categories_list from=$categories}
+			{$categories_list.NAME}
+			<div name="{$categories_list.SHORT}" class="rules_ul">
+			{foreach item=aq_list from=$aq}
+				{if $categories_list.ID == $aq_list.CAT_ID}
+				<div class="rules_li"><center><a href="#{$categories_list.SHORT}{$aq_list.ID}" title="{$categories_list.SHORT}{$aq_list.ID}">{$aq_list.QUESTION}</a></center></div>
+				{/if}
+			{/foreach}
+			</div>
+		{/foreach}
+                 </td>
+				 </tr>
+                </tbody>
+              </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>
+		  
+{foreach item=categories_list_1 from=$categories}
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i><a id="{$categories_list_1.SHORT}" name="{$categories_list_1.SHORT}"></a>{$categories_list_1.NAME} <a href="staffrulesadmin.php?action=editcategory&cid={$categories_list_1.ID}"><img src="{$PIC_URL}edit.png" border="0" alt="" /></a><a href="staffrulesadmin.php?action=deletecategory&cid={$categories_list_1.ID}"><img src="{$PIC_URL}editdelete.png" border="0" alt="" /></a>
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+              <table id='example1' class='table table-bordered table-striped'>
+                <thead>
+                <tr>
+                  <td>
+	{foreach item=aq_list_1 from=$aq}
+		{if $categories_list_1.ID == $aq_list_1.CAT_ID}
+		<div class="rules_question_box"> 
+			<div class="rules_tableb"><span class="normalfont"><a id="{$categories_list_1.SHORT}{$aq_list_1.ID}" name="{$categories_list_1.SHORT}{$aq_list_1.ID}"></a>{$aq_list_1.QUESTION}<a href="staffrulesadmin.php?action=editquestion&qid={$aq_list_1.ID}"><img src="{$PIC_URL}edit.png" border="0" alt="" /></a><a href="staffrulesadmin.php?action=deletequestion&qid={$aq_list_1.ID}"><img src="{$PIC_URL}editdelete.png" border="0" alt="" /></a></span></div>
+			<div class="rules_tablea">{$aq_list_1.ANSWER}</div>
+		</div>
+		{/if}
+	{/foreach}
+                 </td>
+				 </tr>
+                </tbody>
+              </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>
+{/foreach}

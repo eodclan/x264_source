@@ -1,0 +1,82 @@
+{if $EDIT_QUESTION == 1}
+	                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i>Frage bearbeiten
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+		<table class='table'>
+			<tr>
+				<td>
+	<form method="post" name="editQuestion" action="faqadmin.php?action=doeditquestion">
+		<div class="tableb">Kategorie</div>
+		<div class="tablea">
+			<select name="category">
+			{foreach item=categories_data from=$categories}
+				<option value="{$categories_data.ID}" {if $question.CATEGORY == $categories_data.ID}selected{/if}>{$categories_data.NAME}</option>
+			{/foreach}
+			</select>	
+		</div>
+		<div class="tableb">Frage</div><div class="tablea"><input type="text" name="question" value="{$question.QUESTION}" size="50" /></div>
+		<div class="tableb">Antwort</div><div class="tablea"><textarea name="answer" rows="12" cols="50">{$question.ANSWER}</textarea></div>
+		<div class="tableb"><input type="hidden" name="qid" value="{$question.ID}" /><input type="submit" name="submit" value="Abschicken"></div>
+	</form>				
+				</td>
+			</tr>
+		</table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>
+{/if} 
+{if $EDIT_QUESTION_DO == 1}
+	{if $EMPTY == 1}
+	                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i>Frage bearbeiten
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+		<table class='table'>
+			<tr>
+				<td>Du musst alle Felder ausfuellen! <a href="faqadmin.php?action=editquestion&qid={$QID}" title="">Zum Formular</a></td>
+			</tr>
+		</table>
+		                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>
+	{/if}
+	{if $SUCCESS == 1}
+	                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i>Frage bearbeiten
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+		<table class='table'>
+			<tr>
+				<td>Die Frage wurde erfolgreich bearbeitet! <a href="faqadmin.php" title="">Zum FAQ Admin</a></td>
+			</tr>
+		</table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>		
+	{/if}
+{/if}

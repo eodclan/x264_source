@@ -1,0 +1,64 @@
+.shadetabs{
+	text-decoration: none;
+padding: 3px 0;
+margin-left: 0;
+margin-top: 1px;
+margin-bottom: 0;
+font: bold 12px Verdana;
+list-style-type: none;
+text-align: center; /*set to left, center, or right to align the menu as desired*/
+}
+
+.shadetabs li{
+display: inline;
+margin: 0;
+}
+
+.shadetabs li a{
+	text-decoration: none;
+	background-color: #111111;
+	border: 2px solid #000000;
+	box-shadow:0px 0px 6px #000000;
+	-o-border-radius:3px 3px 3px 3px;
+	-icab-border-radius:3px 3px 3px 3px;
+	-khtml-border-radius:3px 3px 3px 3px;
+	-webkit-border-radius:3px 3px 3px 3px;
+	border-radius:3px 3px 3px 3px;
+	width: 8%;
+	height: 40px;
+}
+
+.shadetabs li a:visited{
+color: #2d2b2b;
+}
+
+.shadetabs li a:hover{
+text-decoration: underline;
+color: #2d2b2b;
+}
+
+.shadetabs li.selected{
+position: relative;
+top: 1px;
+}
+
+.shadetabs li.selected a{ /*selected main tab style */
+background-image: url(shadeactive.gif);
+border-bottom-color: white;
+}
+
+.shadetabs li.selected a:hover{ /*selected main tab style */
+text-decoration: none;
+}
+
+.contentstyle{
+border: 0px;
+width: 100%;
+margin-bottom: 1em; padding: 5px;
+}
+
+.contentstyle_usercp{
+border: 0px;
+width: 100%;
+margin-bottom: 1em; padding: 5px;
+}

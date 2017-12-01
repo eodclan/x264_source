@@ -1,0 +1,54 @@
+	                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i>Frage erstellen
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+              <table id='example1' class='table table-bordered table-striped'>
+                <thead>
+                <tr>
+                  <td>
+{if $CREATE_QUESTION == 1}
+<div class="tableinborder" style="width:750px;">
+	<form method="post" name="createQuestion" action="rulesadmin.php?action=docreatequestion">
+		<div class="tableb">Kategorie</div>
+		<div class="tablea">
+			<select name="category">
+			{foreach item=categories_data from=$categories}
+				<option value="{$categories_data.ID}">{$categories_data.NAME}</option>
+			{/foreach}
+			</select>	
+		</div>
+		<div class="tableb">Regel</div><div class="tablea"><input type="text" name="question" value="" size="50" /></div>
+		<div class="tableb">Text</div><div class="tablea"><textarea name="answer" rows="12" cols="50"></textarea></div>
+		<div class="tableb"><input type="submit" name="submit" value="Abschicken"></div>
+	</form>
+</div>
+{/if}
+{if $CREATE_QUESTION_DO == 1}
+	{if $EMPTY == 1}
+	<div class="tableinborder" style="width:750px;">
+		<div class="tabletitle"><span class="normalfont">Kategorie erstellen</span></div>
+		<div class="tableb">Du musst alle Felder ausfüllen! <a href="rulesadmin.php?action=createquestion" title="">Zum Formular</a></div>
+	</div>	
+	{/if}
+	{if $SUCCESS == 1}
+	<div class="tableinborder" style="width:750px;">
+		<div class="tabletitle"><span class="normalfont">Kategorie erstellen</span></div>
+		<div class="tableb">Die Regel wurde erfolgreich angelegt! <a href="rulesadmin.php" title="">Zum Rules Admin</a></div>
+	</div>	
+	{/if}
+{/if}
+                 </td>
+				 </tr>
+                </tbody>
+              </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>

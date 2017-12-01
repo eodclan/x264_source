@@ -1,0 +1,47 @@
+	                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i>Kategorie bearbeiten
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+
+              <table id='example1' class='table table-bordered table-striped'>
+                <thead>
+                <tr>
+                  <td>
+{if $EDIT_CATEGORY == 1}
+<div class="tableinborder" style="width:750px;">
+	<form method="post" name="editCategory" action="rulesadmin.php?action=doeditcategory">
+		<div class="tableb">Name</div><div class="tablea"><input type="text" name="name" value="{$category.NAME}" /></div>
+		<div class="tableb">Kuerzel</div><div class="tablea"><input type="text" name="short" value="{$category.SHORT}" /></div>
+		<div class="tableb"><input type="hidden" name="cid" value="{$category.ID}" /><input type="submit" name="submit" value="Abschicken" /></div>
+	</form>
+</div>
+{/if}
+{if $EDIT_CATEGORY_DO == 1}
+	{if $EMPTY == 1}
+	<div class="tableinborder" style="width:750px;">
+		<div class="tabletitle"><span class="normalfont">Kategorie bearbeiten</span></div>
+		<div class="tableb">Du musst alle Felder ausfuellen! <a href="rulesadmin.php?action=editcategory&cid={$CID}" title="">Zum Formular</a></div>
+	</div>	
+	{/if}
+	{if $SUCCESS == 1}
+	<div class="tableinborder" style="width:750px;">
+		<div class="tabletitle"><span class="normalfont">Kategorie bearbeiten</span></div>
+		<div class="tableb">Die Kategorie wurde erfolgreich bearbeitet! <a href="rulesadmin.php" title="">Zum Rules Admin</a></div>
+	</div>	
+	{/if}
+{/if}
+                 </td>
+				 </tr>
+                </tbody>
+              </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>
