@@ -25,4 +25,7 @@ Source Install:
 3. edit the config.php file
 4. go to settings folder and edit the ex1080_setup.php
 5. All other settings can then be made in the backend ACP.
-6. Have fun
+
+Source Settings:
+1. edit the file: .htaccess
+2. all other settings can then be made in the backend ACP.
