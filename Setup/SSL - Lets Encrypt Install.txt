@@ -1,0 +1,10 @@
+SSL - Lets Encrypt Install:
+1. go to cd /opt
+2. apt-get install git
+3. git clone https://github.com/certbot/certbot
+4. go to cd /opt/certbot/letsencrypt-auto-source
+5. service apache2 stop
+6. ./letsencrypt-auto
+7. select your domain in the letsencrypt-auto
+8. service apache2 start
+9. have fun 
