@@ -1,0 +1,47 @@
+        <div class='col-md-6'>
+          <div class='box'>
+            <div class='box-header'>
+              <h3 class='box-title'>Manager Verwaltung</h3>
+            </div>
+		<table class='table'>
+			<tr>
+				<td>
+		{foreach item=categories_list from=$categories}
+			<div name="{$categories_list.SHORT}" class="x264_title_table">
+			{foreach item=aq_list from=$aq}
+				{if $categories_list.ID == $aq_list.CAT_ID}
+				<div class="x264_title_tablename"><center><a href="#{$categories_list.SHORT}{$aq_list.ID}" title="{$categories_list.SHORT}{$aq_list.ID}">{$aq_list.QUESTION}</a></center></div>
+				{/if}
+			{/foreach}
+		{/foreach}				
+				</td>
+			</tr>
+		</table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+{foreach item=categories_list_1 from=$categories}		  
+        <div class='col-md-6'>
+          <div class='box'>
+            <div class='box-header'>
+              <h3 class='box-title'><a id="{$categories_list_1.SHORT}" name="{$categories_list_1.SHORT}"></a>{$categories_list_1.NAME}</h3>
+            </div>
+		<table class='table'>
+			<tr>
+				<td>
+	{foreach item=aq_list_1 from=$aq}
+		{if $categories_list_1.ID == $aq_list_1.CAT_ID}
+			<div class="x264_title_content">
+				<div class="x264_title_table"><span class="normalfont"><a id="{$categories_list_1.SHORT}{$aq_list_1.ID}" name="{$categories_list_1.SHORT}{$aq_list_1.ID}"></a>{$aq_list_1.QUESTION}</span></div>
+				<div class="x264_title_table">{$aq_list_1.ANSWER}</div>
+			</div>
+		{/if}
+	{/foreach}				
+				</td>
+			</tr>
+		</table>
+            </div>
+            <!-- /.box-body -->
+          </div>		  
+{/foreach}

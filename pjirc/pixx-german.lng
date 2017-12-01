@@ -1,0 +1,74 @@
+#
+#         This java file is a part of the
+#
+#          -  Plouf's Java IRC Client  -
+#
+#      Copyright (C) 2002 Philippe Detournay
+#
+#   This file is licensed under the GPL license
+#
+#        All contacts : theplouf@yahoo.com
+#
+#
+#  Syntax :
+#    Comments begin with the # character. This character must be the first character of the line.
+#    A data line has three parts : the data id, the data id description, the data string.
+#      - Data id : An hexadecimal figure identifying the string.
+#      - Data description : Begins by [ and ends by ]. The description is not parsed and
+#                           can be any string.
+#      - Data string : The string itself. Parameters are specified using the %i syntax.
+#
+#  Trailing spaces can be added using the \s escape character.
+
+8601 [SOURCE_YOU_KICKED] Du wurdest von %2 aus %1 gekickt
+8602 [SOURCE_STATUS] Status
+8603 [SOURCE_CHANLIST] Channels von %1
+8604 [SOURCE_CHANLIST_RETREIVING] Hole Channels...
+8605 [SOURCE_HAS_JOINED] %1 betritt %2
+8606 [SOURCE_HAS_LEFT] %1 verlässt %2
+8607 [SOURCE_HAS_BEEN_KICKED_BY] %1 wurde von %2 gekickt
+8608 [SOURCE_HAS_QUIT] %1 hat beendet
+8609 [SOURCE_TOPIC_IS] Topic ist %1
+860a [SOURCE_CHANGED_TOPIC] %1 änderte Topic in %2
+860b [SOURCE_CHANNEL_MODE] %1 setzt Channelmodus auf %2
+860c [SOURCE_CHANNEL_MODE_IS] Channelmodus ist %1
+860d [SOURCE_USER_MODE] %1 setzt Modus %2 auf %3
+860e [SOURCE_KNOWN_AS] %1 heißt nun %2
+860f [SOURCE_YOUR_MODE] Modus geändert in %1
+8610 [SOURCE_YOUR_NICK] Dein Nick ist nun %1
+8611 [SOURCE_INFO] Infos
+8612 [SOURCE_AWAY] %1 ist weg
+8613 [SOURCE_YOU_INVITED] %1 lädt dich ein %2 zu betreten
+8614 [SOURCE_YOU_JOINED_AS] Du bist in %1 als %2
+
+8701 [GUI_WHOIS] Whois
+8702 [GUI_QUERY] Query
+8703 [GUI_KICK] Kick
+8704 [GUI_BAN] Ban
+8705 [GUI_KICKBAN] Kick + Bann
+8706 [GUI_OP] Op
+8707 [GUI_DEOP] DeOp
+8708 [GUI_VOICE] Voice
+8709 [GUI_DEVOICE] DeVoice
+870a [GUI_PING] Ping
+870b [GUI_VERSION] Version
+870c [GUI_TIME] Zeit
+870d [GUI_FINGER] Finger
+870e [GUI_RETREIVING_FILE] Empfange Datei (%1 Bytes)
+870f [GUI_SENDING_FILE] Sende Datei (%1 bytes)
+8710 [GUI_TERMINATED] %1 beendet
+8711 [GUI_FAILED] %1 fehlgeschlagen
+8712 [GUI_CLOSE] Schließen
+8713 [GUI_DISCONNECT] Trennen
+8714 [GUI_CHANNELS] Channels
+8715 [GUI_HELP] Hilfe
+8716 [GUI_PRIVATE] Privat
+8717 [GUI_PUBLIC] Öffentlich
+8718 [GUI_CONNECT] Verbinden
+8719 [GUI_ABOUT] Über
+871a [GUI_CHANGE_NICK] Ändere Nick in
+871c [GUI_FONT] Schriftart
+871d [GUI_FONT_WINDOW] Wähle Schriftart
+871e [GUI_FONT_WINDOW_OK] Ok
+
+ffff [ERROR_NOT_DEFINED] Undefinierter String

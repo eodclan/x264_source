@@ -1,0 +1,68 @@
+{if $EDIT_QUESTION == 1}
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i> Kategorie bearbeiten
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+	<form method="post" name="editQuestion" action="staffrulesadmin.php?action=doeditquestion">
+		<div class="tableb">Kategorie</div>
+		<div class="tablea">
+			<select name="category">
+			{foreach item=categories_data from=$categories}
+				<option value="{$categories_data.ID}" {if $question.CATEGORY == $categories_data.ID}selected{/if}>{$categories_data.NAME}</option>
+			{/foreach}
+			</select>	
+		</div>
+		<div class="tableb">Regel</div><div class="tablea"><input type="text" name="question" value="{$question.QUESTION}" size="50" /></div>
+		<div class="tableb">Text</div><div class="tablea"><textarea name="answer" rows="12" cols="50">{$question.ANSWER}</textarea></div>
+		<div class="tableb"><input type="hidden" name="qid" value="{$question.ID}" /><input type="submit" name="submit" value="Abschicken"></div>
+	</form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>
+{/if} 
+{if $EDIT_QUESTION_DO == 1}
+	{if $EMPTY == 1}
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i> Kategorie bearbeiten
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+		<div class="tableb">Du musst alle Felder ausfuellen! <a href="staffrulesadmin.php?action=editquestion&qid={$QID}" title="">Zum Formular</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>	
+	{/if}
+	{if $SUCCESS == 1}
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                            <div class='card'>
+                                <div class='card-header'>
+                                    <i class='fa fa-edit'></i> Kategorie bearbeiten
+                                    <div class='card-actions'>
+                                        <a href='#' class='btn-close'><i class='icon-close'></i></a>
+                                    </div>
+                                </div>
+                                <div class='card-block'>
+		<div class="tableb">Die Regel wurde erfolgreich bearbeitet! <a href="staffrulesadmin.php" title="">Zum Staff Rules Admin</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/col-->
+                    </div>	
+	{/if}
+{/if}
