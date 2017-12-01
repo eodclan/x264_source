@@ -1,15 +1,15 @@
 <?php
 // ************************************************************************************//
-// * D€ Source
+// * D€ Source 2017
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
-// * Version: 1.x
+// * Version: 1.7
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
+// ************************************************************************************// 
 require_once(dirname(__FILE__) . "/bittorrent.php");
 
 function security_tactics($msg=true)
@@ -17,7 +17,7 @@ function security_tactics($msg=true)
 	// Secure Settings
 	$securenick = $GLOBALS["SECIRITYTACTICS_NICK"];
 	$securepass = $GLOBALS["SECIRITYTACTICS_PASSWORD"];
-	$securename = "STS:4.0";
+	$securename = "STS:4.1";
 
 	// Secure Error System
 	if ($_SERVER["PHP_AUTH_USER"] == "" || $_SERVER["PHP_AUTH_PW"] == "" || $_SERVER["PHP_AUTH_USER"] != $securenick || $_SERVER["PHP_AUTH_PW"] != $securepass)
@@ -41,14 +41,12 @@ function security_tactics($msg=true)
                                     </div>
                                 </div>
                                 <div class='card-block'>
-      					<div class='error-page'>
-        					<div class='error-content'>
-          						<h3><i class='fa fa-warning text-red'></i> Oops! Something went wrong.</h3>
-          						<p>
-								We've saved your illegal or inappropriate access and directors were informed! <a href='index.php' style='color:#555;'>Back to WebSite</a>
-          						</p>
-        					</div>
-      					</div>
+									<div class='error-page'>
+										<div class='error-content'>
+											<h3><i class='fa fa-warning text-red'></i> Oops! Something went wrong.</h3>
+											<p>We've saved your illegal or inappropriate access and directors were informed! <a href='index.php' style='color:#555;'>Back to WebSite</a></p>
+										</div>
+									</div>
                                 </div>
                             </div>
                         </div>
