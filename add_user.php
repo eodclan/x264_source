@@ -1,21 +1,21 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2017
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
-// * Version: 5.9
+// * Version: 1.7
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
-
+// ************************************************************************************// 
 require_once(dirname(__FILE__) . "/include/bittorrent.php");
 dbconn();
 loggedinorreturn();
 check_access(UC_ADMINISTRATOR);
 security_tactics();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
   if ($_POST["username"] == "" || $_POST["password"] == "" || $_POST["email"] == "" || $_POST["secure_code"] == "")
@@ -78,7 +78,7 @@ x264_bootstrap_header("Account erstellen");
 										<li>Passwort wdh.: <br /><input type="password" name="password2" size="40"></li>
 										<li>Secure Code: <br /><input type="secure_code" name="secure_code" size="40"></li>
 										<li>E-Mail: <br /><input type="text" name="email" size="40"></li>
-										<li><br /><input type="submit" value="Okay" class="btn"></li>					
+										<li><input type="submit" value="Okay" class="btn"></li>					
 									</ul>
                                 </div>
                             </div>
