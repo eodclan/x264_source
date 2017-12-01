@@ -1,12 +1,19 @@
 <?php
+// ************************************************************************************//
+// * D€ Source 2017
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 1.7
+// * 
+// * Copyright (c) 2017 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
 ob_start("ob_gzhandler");
-
-require_once("include/bittorrent.php");
-
+require_once(dirname(__FILE__) . "/include/bittorrent.php");
 hit_start();
-
 dbconn(false);
-
 loggedinorreturn();
 hit_count();
 
@@ -45,9 +52,19 @@ if ($count) {
     torrenttable($res, "index", $addparam);
 
     print($pagerbottom);
-} 
-
+}
+else
+{ 
 print"
+						<table class='table table-bordered table-striped table-condensed'>
+							<thead>
+								<tr>
+									<td>Es sind momentan keine Highlight Torrents vorhanden!</td>
+								</tr>
+							</thead>
+						</table>";
+}
+print"						
                         </thead>
                     </table>
 				</div>
