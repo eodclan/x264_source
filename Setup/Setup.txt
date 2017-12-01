@@ -22,13 +22,12 @@ chmod settings:
 6. chmod 0777 Folder/pic/smilies
 
 Source Install:
+1. create your database
+2. edit the db_setup.php for your database access data
+3. edit the config.php file
+4. go to settings folder and edit the ex1080_setup.php
+5. All other settings can then be made in the backend ACP.
 
-create your database
-edit the db_setup.php for your database access data
-edit the config.php file
-go to settings folder and edit the ex1080_setup.php
-All other settings can then be made in the backend ACP.
 Source Settings:
-
-edit the file: .htaccess
-all other settings can then be made in the backend ACP.
+1. edit the file: .htaccess
+2. all other settings can then be made in the backend ACP.
