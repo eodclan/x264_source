@@ -1,0 +1,9 @@
+Options -Indexes
+Header unset ETag
+FileETag None
+SetOutputFilter DEFLATE
+AddOutputFilterByType DEFLATE text/html text/plain text/xml
+<FilesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|html|php)$">
+Header set Expires "Thu, 15 Apr 2100 20:00:00 GMT"
+</FilesMatch>
+
