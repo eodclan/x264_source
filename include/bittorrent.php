@@ -89,10 +89,10 @@ function validip($ip='', $ip_type=''){
 
 function dbconn($autoclean = false)
 {
-  define_user_class();
-  userlogin();
-  ctracker();
-  set_smilies();
+	define_user_class();
+	userlogin();
+	ctracker();
+	set_smilies();
 	if ($autoclean)
         register_shutdown_function("autoclean");
 }
@@ -229,25 +229,24 @@ function trim_it($name, $count){
 
 function makehours($date)  // by Solstice
 {
-$arr1 = explode(" ","$date");
-$timebig = explode("-","$arr1[0]");
-$timetiny = explode(":","$arr1[1]");
-$yearreg = $timebig[0];
-$monthreg = $timebig[1];
-$dayreg = $timebig[2];
-$hourreg = $timetiny[0];
+	$arr1 = explode(" ","$date");
+	$timebig = explode("-","$arr1[0]");
+	$timetiny = explode(":","$arr1[1]");
+	$yearreg = $timebig[0];
+	$monthreg = $timebig[1];
+	$dayreg = $timebig[2];
+	$hourreg = $timetiny[0];
 
+	$hours = ( ($yearreg*365*24)+($monthreg*30*24)+($dayreg*24)+$hourreg );
 
-$hours = ( ($yearreg*365*24)+($monthreg*30*24)+($dayreg*24)+$hourreg );
-
-return $hours;
+	return $hours;
 }
 
 function bb_err($type)
 {
-$error[0] = true;
-$error[1] = $type;
-return $error;
+	$error[0] = true;
+	$error[1] = $type;
+	return $error;
 }
 
 function get_secure($hash = "")
@@ -444,12 +443,12 @@ function logoutcookie()
 
 function loggedinorreturn()
 {
-  global $CURUSER, $DEFAULTBASEURL;
-  if (!$CURUSER)
-  {
-    header("Location: /login.php#tologin");
-    exit();
-  }
+	global $CURUSER, $DEFAULTBASEURL;
+	if (!$CURUSER)
+	{
+		header("Location: /login.php#tologin");
+		exit();
+	}
 }
 
 function autoclean()
@@ -603,52 +602,11 @@ function parsedescr($d, $html)
     return $d;
 } 
 
-function ratiostatbox()
-{
-    global $CURUSER;
-
-    if ($CURUSER) {
-        $ratio = ($CURUSER["downloaded"] > 0?number_format($CURUSER["uploaded"] / $CURUSER["downloaded"], 3, ",", "."):"Inf.");
-        $seedsarr = @mysql_fetch_assoc(mysql_query("SELECT COUNT(*) AS `cnt` FROM `peers` WHERE `userid`=" . $CURUSER["id"] . " AND `seeder`='yes'"));
-        $seeds = $seedsarr["cnt"];
-        $leechesarr = @mysql_fetch_assoc(mysql_query("SELECT COUNT(*) AS `cnt` FROM `peers` WHERE `userid`=" . $CURUSER["id"] . " AND `seeder`='no'"));
-        $leeches = $leechesarr["cnt"];
-        $tlimits = get_torrent_limits($CURUSER);
-
-        if ($ratio < 0.5) {
-            $ratiowarn = " style=\"background-color:red;color:white;\"";
-        } elseif ($ratio < 0.75) {
-            $ratiowarn = " style=\"background-color:#FFFF00;color:black;\"";
-        } 
-
-        if ($tlimits["seeds"] >= 0) {
-            if ($tlimits["seeds"] - $seeds < 1)
-                $seedwarn = " style=\"background-color:red;color:white;\"";
-            $tlimits["seeds"] = " / " . $tlimits["seeds"];
-        } else
-            $tlimits["seeds"] = "";
-        if ($tlimits["leeches"] >= 0) {
-            if ($tlimits["leeches"] - $leeches < 1)
-                $leechwarn = " style=\"background-color:red;color:white;\"";
-            $tlimits["leeches"] = " / " . $tlimits["leeches"];
-        } else
-            $tlimits["leeches"] = "";
-        if ($tlimits["total"] >= 0) {
-            if ($tlimits["total"] - $leeches + $seeds < 1)
-                $totalwarn = " style=\"background-color:red;color:white;\"";
-            $tlimits["total"] = " / " . $tlimits["total"];
-        } else
-            $tlimits["total"] = "";
-
-	include("".$GLOBALS["TEMPLATES_SYSTEM"]. "x264_ratiostatbox.php");
-	} 
-} 
-
 // Design System
 function x264_header($title = "", $msgalert = true)
 {
 
-  global $CURUSER, $_SERVER, $PHP_SELF, $db, $mc1;
+	global $CURUSER, $_SERVER, $PHP_SELF, $db, $mc1;
 
     if (!$GLOBALS["SITE_ONLINE"])
 	die("Die Seite ist momentan aufgrund von Wartungsarbeiten nicht verfügbar.<br>");
@@ -704,7 +662,7 @@ function x264_header($title = "", $msgalert = true)
 function x264_bootstrap_header($title = "", $msgalert = true)
 {
 
-  global $CURUSER, $_SERVER, $PHP_SELF, $db, $mc1;
+	global $CURUSER, $_SERVER, $PHP_SELF, $db, $mc1;
 
     if (!$GLOBALS["SITE_ONLINE"])
 	die("Die Seite ist momentan aufgrund von Wartungsarbeiten nicht verfügbar.<br>");
@@ -806,7 +764,7 @@ function x264_header_nologged($title = "", $msgalert = true)
 function x264_errormsg_header($title = "", $msgalert = true)
 {
 
-  global $CURUSER, $_SERVER, $PHP_SELF, $db, $mc1;
+	global $CURUSER, $_SERVER, $PHP_SELF, $db, $mc1;
 
     if (!$GLOBALS["SITE_ONLINE"])
 	die("Die Seite ist momentan aufgrund von Wartungsarbeiten nicht verfügbar.<br>");
@@ -978,11 +936,10 @@ function commenttable($rows)
         $text = stripslashes(format_comment($row["text"]));
         if ($row["editedby"])
             $text .= "<p><font size=\"1\" class=\"small\">Zuletzt von <a href=\"userdetails.php?id=".$row["editedby"]."\"><b>".$row["username"]."</b></a> am ".$row["editedat"]." bearbeitet</font></p>\n";
-print(" <tr valign=\"top\">\n
+		print(" <tr valign=\"top\">\n
         <td class=\"tableb\" align=\"center\" style=\"padding: 0px;width: 150px\"><img width=\"150\" src=\"".$avatar."\" alt=\"Avatar von ".$row["username"]."\"></td>\n
         p<td class=\"tablea\">".$text."</td>\n
-        </tr>\n
-     ");
+        </tr>\n");
         end_table();
     } 
 } 
@@ -1126,7 +1083,7 @@ function oster_suche()
              
         mysql_query("UPDATE users SET uploaded = uploaded + " . ($gewinn * 1024 * 1024) . " WHERE id = " . $CURUSER['id'] . " LIMIT 1") OR sqlerr(__FILE__, __LINE__);
   	
-	write_log("modmessages", "<b><font color=red>Ein User hat ein Osterei gefunden!!</font></b>");
+		write_log("modmessages", "<b><font color=red>Ein User hat ein Osterei gefunden!!</font></b>");
 
         return
         '<div class="siteloader_warp" style="position:absolute;width:400px;height:400px;">                              
@@ -1138,10 +1095,8 @@ function oster_suche()
 			Im Osterei waren ' . number_format($gewinn / 1000,1,".",",") . ' GB an Upload versteckt!
 			<p style="text-align:right;font-size:10pt;font-style:italic;padding: 30px 10px 5px 5px;"><a href="javascript:void(0);" onclick="document.getElementById(\'osterei\').style.display=\'none\';">Fenster ausblenden</a></p>		
 		</div>
-	</div>';
-  
+		</div>';
     }
-
-  return;   
+	return;   
 } 
 ?>
