@@ -441,39 +441,6 @@ function handleimage($com){
 	return $go_picly;
 }
 
-function check_imageurl($url, $lightbox=true, $output = "")
-{
-  $allowed_domains= array(
-    "http://" . $GLOBALS["DOMAIN"] . "",
-    "https://" . $GLOBALS["DOMAIN"] . ""
-  );
-  
-  $success = false;
-  
-  foreach ($allowed_domains as $domain)
-  {
-    $checkstring = substr($url,0,strlen($domain));
-    
-    if ($domain == $checkstring)
-      $success = true;
-  }
-  
-  if ($output == "boolean")
-    return $success;
-
-  if (!$success)
-    $url = "/getpic.php?url=".urlencode($url);
-  
-  if ($lightbox)
-  {
-    return "<img src=\"".$url."\" style=\"max-width: 350px;\" border=\"0\"></div>";
-  }
-  else
-  {
-    return "<img src=\"".$url."\" alt=\"\" border=\"0\" class='mx-auto d-block' style=\"max-width:350px;\">";
-  }
-}
-
 function check_tactics($url, $lightbox=false, $output = "")
 {
  $allowed_domains= array(
@@ -538,9 +505,9 @@ function format_comment($text, $strip_html = true)
     $s = str_replace("\\r\\n", "[br]", $s);
     $s = str_replace("\n", "[br]", $s);
     $s = str_replace(array("\\r\\n", "\\n\\n"),"[br]",$s);
-//    $s = str_replace("\\r\\n","[br]", $s);
+	//    $s = str_replace("\\r\\n","[br]", $s);
 
-//hierneu eingefügt-----------------
+	//hierneu eingefügt-----------------
     $s = str_replace("cleanup_acp.php", "<img src=pic/secure_system.png alt=pic>", $s);
     $s = str_replace("bittorrent.php", "<img src=pic/secure_system.png alt=pic>", $s);
     $s = str_replace("logout.php", "<img src=pic/secure_system.png alt=pic>", $s);
@@ -606,23 +573,23 @@ function format_comment($text, $strip_html = true)
 
     $s = preg_replace("/\[imghost=((\s|.)+?)\]/i", "<img src=\"_x264_/bitbucket/\\1\" alt=\"\" style=\"max-width:700px;\" border=\"0\"></a>", $s);  
     
-// [img]http://www/image.gif[/img]
+	// [img]http://www/image.gif[/img]
     $s = preg_replace("/\[img\](https:\/\/[^\s'\"<>]+(\.(jpg|gif|png)))\[\/img\]/ie", "check_tactics('\\1')", $s);
-// [img=http://www/image.gif]
+	// [img=http://www/image.gif]
     $s = preg_replace("/\[img=([^\s'\"<>]+?)\]/ie", "check_tactics('\\1')", $s);
     // [color=blue]Text[/color]
     $s = preg_replace("/\[color=([a-zA-Z]+)\]((\s|.)+?)\[\/color\]/i",
         "<font color=\\1>\\2</font>", $s);
 
     $s = preg_replace("/\[color=(#[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9])\]((\s|.)+?)\[\/color\]/i", "<font color=\\1>\\2</font>", $s);
-    $s = preg_replace("/\[lightbox\]([^\s'\"<>]+?)\[\/lightbox\]/ie", "check_imageurl('\\1',true)", $s);
-// links will show as text with info
+    $s = preg_replace("/\[lightbox\]([^\s'\"<>]+?)\[\/lightbox\]/ie", "check_tactics('\\1',true)", $s);
+	// links will show as text with info
 if (get_user_class() < UC_ADMINISTRATOR)
 {
-// [url=http://www.example.com]Text[/url]
+	// [url=http://www.example.com]Text[/url]
     $s = preg_replace("/(\A|[^=\]'\"a-zA-Z0-9])((ftp|ftps|irc|swf|html|php):\/\/[^()<>\s]+)/i",
         "<font size=\"3\" style=\"font-family:'Times New Roman',Times,serif;'\" color=\"red\" ><b>Fehler:</b></font><font size=\"3\" style=\"font-family:'Times New Roman',Times,serif;'\" color=\"green\" ><b> Wir erlauben nur generierte Links.</b></font>", $s);
-// [url]http://www.example.com[/url]
+	// [url]http://www.example.com[/url]
     $s = preg_replace("/\[url\]([^()<>\s]+?)\[\/url\]/i",
         "<font color=red size=\"2\"><b>Security Tactics System:</b></font><font color=green><b> We've saved your illegal or inappropriate access and directors were informed!</b></font>", $s);
 }
@@ -635,15 +602,6 @@ else
     $s = preg_replace("/\[url\]([^()<>\s]+?)\[\/url\]/i",
         "<font color=red>URL</font>: \\1", $s);
 }
-/*
-// here is original UBB code setting
-    // [url=http://www.example.com]Text[/url]
-    $s = preg_replace("/\[url=([^()<>\s]+?)\]((\s|.)+?)\[\/url\]/i",
-        "<a href=\"\\1\" target=\"\\_blank\">\\2</a>", $s);
-    // [url]http://www.example.com[/url]
-    $s = preg_replace("/\[url\]([^()<>\s]+?)\[\/url\]/i",
-        "<a href=\"\\1\">\\1</a>", $s);
-*/
     // [size=4]Text[/size]
     $s = preg_replace("/\[size=([1-7])\]((\s|.)+?)\[\/size\]/i",
         "<font size=\\1>\\2</font>", $s);

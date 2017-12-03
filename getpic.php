@@ -1,5 +1,6 @@
 <?php
-$picloaderurl = "https://power-castle.ml"; // Leer Lassen für Direct Connect
+ // Leer Lassen für Direct Connect
+$picloaderurl = "";
 
 $url          = trim($_GET['url']);
 
