@@ -204,6 +204,7 @@ if ($_SERVER["SERVER_PORT"] != 443)
 
 // Set this to your site URL, if automatic detection won't work
 $GLOBALS["DEFAULTBASEURL"] = "https://yourdomain.com";
+// Without http and https specify!
 $GLOBALS['DOMAIN'] = "yourdomain.com";
 
 // Array containing all domains which are used to reach the tracker

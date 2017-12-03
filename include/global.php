@@ -1,37 +1,37 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2017
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
-// * Version: 5.0
+// * Version: 1.7
 // * 
-// * Copyright (c) 2015 - 2016 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
+// ************************************************************************************// 
 function define_user_class()
 {
-  $sql = "SELECT * FROM userclass ORDER BY class ASC";
-  $res = mysql_query($sql) or sqlerr(__FILE__, __LINE__);
+	$sql = "SELECT * FROM userclass ORDER BY class ASC";
+	$res = mysql_query($sql) or sqlerr(__FILE__, __LINE__);
 
-  while ($arr = mysql_fetch_array($res))
-  {
-    $klasse = "UC_" . $arr["name"];
-    define($klasse, $arr["class"]);
-  }
+	while ($arr = mysql_fetch_array($res))
+	{
+		$klasse = "UC_" . $arr["name"];
+		define($klasse, $arr["class"]);
+	}
 }
 
 function user_colors()
 {
-  $x   = "";
-  $sql = "SELECT name, color FROM userclass ORDER BY class ASC";
-  $res = mysql_query($sql) or sqlerr(__FILE__, __LINE__);
+	$x   = "";
+	$sql = "SELECT name, color FROM userclass ORDER BY class ASC";
+	$res = mysql_query($sql) or sqlerr(__FILE__, __LINE__);
 
-  while ($arr = mysql_fetch_array($res))
-    $x .= ".uc" . strtolower(str_replace("_", "", $arr["name"])) . " { color: " . $arr["color"] . " }\n";
+	while ($arr = mysql_fetch_array($res))
+		$x .= ".uc" . strtolower(str_replace("_", "", $arr["name"])) . " { color: " . $arr["color"] . " }\n";
 
-  return $x;
+	return $x;
 }
 
 // PM special folder IDs
@@ -75,7 +75,7 @@ echo("
 
 function stderr($heading, $text)
 {
-    x264_header();
+	x264_header();
     stdmsg($heading, $text);
     x264_footer();
     die;
@@ -210,87 +210,87 @@ function format_quotes($s)
 
 function auto_post($subject = "Error - Subject Missing",$body = "Error - No Body") // Function to use the special system message forum
 {
-  $forumid = 9;  // Remember to change this if the forum is recreated for some reason.
+	$forumid = 9;  // Remember to change this if the forum is recreated for some reason.
 
-  mysql_query( "INSERT INTO topics (userid, forumid, subject) VALUES(0, $forumid, $subject)") or sqlerr(__FILE__, __LINE__);
+	mysql_query( "INSERT INTO topics (userid, forumid, subject) VALUES(0, $forumid, $subject)") or sqlerr(__FILE__, __LINE__);
 
-  $topicid = @mysql_insert_id();
-  $added = "'" . get_date_time() . "'";
+	$topicid = @mysql_insert_id();
+	$added = "'" . get_date_time() . "'";
 
-  mysql_query( "INSERT INTO posts (topicid, userid, added, body) " .
+	mysql_query( "INSERT INTO posts (topicid, userid, added, body) " .
                "VALUES($topicid, 0, $added, $body)") or sqlerr(__FILE__, __LINE__);
 
-  $res = mysql_query("SELECT id FROM posts WHERE topicid=$topicid ORDER BY id DESC LIMIT 1") or sqlerr(__FILE__, __LINE__);
-  $arr = mysql_fetch_row($res) or die("No post found");
-  $postid = $arr[0];
-  mysql_query("UPDATE topics SET lastpost=$postid WHERE id=$topicid") or sqlerr(__FILE__, __LINE__);
+	$res = mysql_query("SELECT id FROM posts WHERE topicid=$topicid ORDER BY id DESC LIMIT 1") or sqlerr(__FILE__, __LINE__);
+	$arr = mysql_fetch_row($res) or die("No post found");
+	$postid = $arr[0];
+	mysql_query("UPDATE topics SET lastpost=$postid WHERE id=$topicid") or sqlerr(__FILE__, __LINE__);
 }
 
 function auto_report($reason = "Error - No Body", $userid ) // Function to use the special system message forum
 {
-global $CURUSER;
+	global $CURUSER;
 
-  $added = "'" . get_date_time() . "'";
-  mysql_query("INSERT into report (reporter,reportid,typ,reason,tid) VALUES ('0','$userid', 'user', '$reason', $added)") or sqlerr();
+	$added = "'" . get_date_time() . "'";
+	mysql_query("INSERT into report (reporter,reportid,typ,reason,tid) VALUES ('0','$userid', 'user', '$reason', $added)") or sqlerr();
 
 }
 
 function parser_rain($text,$options)
 {
-  $c = explode(" ", $options);
-  if (is_array($c))
-  foreach ($c as $g)
-  {
-    if (preg_match("/([#][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9])/i",$g))
-      $colorcode = substr($g,1,6);
+	$c = explode(" ", $options);
+	if (is_array($c))
+	foreach ($c as $g)
+	{
+		if (preg_match("/([#][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9])/i",$g))
+		$colorcode = substr($g,1,6);
     elseif (preg_match("/max=([0-9]+)/i",$g))
-      $charlimit = preg_replace("/max=([0-9]+)/i","\\1",$g);
-  }
-  if (preg_match("/rev/i",$options))
-  $reverse   = 1;
+		$charlimit = preg_replace("/max=([0-9]+)/i","\\1",$g);
+	}
+	if (preg_match("/rev/i",$options))
+	$reverse   = 1;
 
-  return '<script type="text/javascript"> rainbowt("'.$text.'","'.$colorcode.'","'.$charlimit.'","'.$reverse.'");</script>';
+	return '<script type="text/javascript"> rainbowt("'.$text.'","'.$colorcode.'","'.$charlimit.'","'.$reverse.'");</script>';
 }
 
 function parser_block($text)
 {
-  $allowedchars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	$allowedchars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-  for($i=0; $i < strlen($text); $i++)
-  {
-    $letter = substr($text, $i, 1);
+	for($i=0; $i < strlen($text); $i++)
+	{
+		$letter = substr($text, $i, 1);
 
-    if (strpos($allowedchars, $letter) === false) $l="blank";
-    elseif (strtolower($letter) == $letter) $l = $letter;
-    else $l = strtolower($letter)."g";
+		if (strpos($allowedchars, $letter) === false) $l="blank";
+		elseif (strtolower($letter) == $letter) $l = $letter;
+		else $l = strtolower($letter)."g";
 
-    $ret .= "<img src='/pic/letter/".$l.".gif' border='0' alt='".$letter."'>";
-  }
-  return $ret;
+		$ret .= "<img src='/pic/letter/".$l.".gif' border='0' alt='".$letter."'>";
+	}
+	return $ret;
 }
 
 function parser_tvdb($tvdb)
 {
-  global $db;
+	global $db;
   
-  if ($tvdb == "System")
-  {
-    $class = UC_SYSOP;
-  }
+	if ($tvdb == "System")
+	{
+		$class = UC_SYSOP;
+	}
   
-  return "<a href='redir.php?url=https://www.fernsehserien.de/suche/".$tvdb."' target='_blank'><b>".$tvdb."</b></a>";
+	return "<a href='redir.php?url=https://www.fernsehserien.de/suche/".$tvdb."' target='_blank'><b>".$tvdb."</b></a>";
 }
 
 function parser_radio_wunsch($parser_radio_wunsch)
 {
-  global $db;
+	global $db;
   
-  if ($parser_radio_wunsch == "System")
-  {
-    $class = UC_SYSOP;
-  }
+	if ($parser_radio_wunsch == "System")
+	{
+		$class = UC_SYSOP;
+	}
   
-  return "Ich wünsche mir folgenden Musik Titel im Radio: <b>".$parser_radio_wunsch."</b>";
+	return "Ich wünsche mir folgenden Musik Titel im Radio: <b>".$parser_radio_wunsch."</b>";
 }
 
 function is_image($src) {
@@ -332,18 +332,18 @@ function smart_wordwrap($string, $width = 75, $break = "\n") {
 
 function parser_nick($nick)
 {
-  global $db;
+	global $db;
   
-  if ($nick == "System")
-  {
-    $class = UC_SYSOP;
-  }
-  else
-  {
-    $class = $db -> querySingleItem("SELECT class FROM users WHERE username = ".sqlesc($nick));
-  }
+	if ($nick == "System")
+	{
+		$class = UC_SYSOP;
+	}
+	else
+	{
+		$class = $db -> querySingleItem("SELECT class FROM users WHERE username = ".sqlesc($nick));
+	}
   
-  return "<font class='".get_class_color($class)."'><b>".$nick."</b></font>";
+	return "<font class='".get_class_color($class)."'><b>".$nick."</b></font>";
 }
 
 function get_pretime($UploadDate, $DPreTime) {
@@ -444,10 +444,8 @@ function handleimage($com){
 function check_imageurl($url, $lightbox=true, $output = "")
 {
   $allowed_domains= array(
-    "" . $GLOBALS["DEFAULTBASEURL"] . "",
-    "xxxxxx",
-    "xxxxxx",
-    "xxxxxx"
+    "http://" . $GLOBALS["DOMAIN"] . "",
+    "https://" . $GLOBALS["DOMAIN"] . ""
   );
   
   $success = false;
@@ -479,10 +477,8 @@ function check_imageurl($url, $lightbox=true, $output = "")
 function check_tactics($url, $lightbox=false, $output = "")
 {
  $allowed_domains= array(
-    "" . $GLOBALS["DEFAULTBASEURL"] . "",
-    "xxxxxx",
-    "xxxxxx",
-    "xxxxxx"
+    "http://" . $GLOBALS["DOMAIN"] . "",
+    "https://" . $GLOBALS["DOMAIN"] . ""
   );
   
   $success = false;
