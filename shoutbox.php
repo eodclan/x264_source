@@ -121,10 +121,10 @@ if ($action == "pc" || $action == "pview")
     <META HTTP-EQUIV='Content-Style-Type' content='text/css'>
     <META HTTP-EQUIV='Content-Script-Type' content='text/javascript'>
     ".$meta."
-    <link rel='stylesheet' href='/design/x264_black/x264.php' type='text/css'>
+    <link rel='stylesheet' href='".$GLOBALS["DESIGN_PATTERN"].$GLOBALS["ss_uri"]."/ex1080.php' type='text/css'>
     <link rel='stylesheet' href='/classcolor.php' type='text/css'>
-    <script type='text/javascript' src='/design/x264_black/js/lightbox.js'></script>
-    <script type='text/javascript' src='/design/x264_black/js/rainbowtext.js'></script>
+    <script type='text/javascript' src='".$GLOBALS["DESIGN_PATTERN"].$GLOBALS["ss_uri"]."/js/lightbox.js'></script>
+    <script type='text/javascript' src='".$GLOBALS["DESIGN_PATTERN"].$GLOBALS["ss_uri"]."/js/rainbowtext.js'></script>
     <style type='text/css'>
       A {color: #0000FF; font-weight: bold; }
       A:hover {color: #FF0000;}
@@ -207,7 +207,7 @@ if ($action == "pc" || $action == "pview")
 <div class='x264_wrapper_content_out_mount'>
 <h1 class='x264_im_logo'>Ungültige Daten</h1>
     <center>
-<img class='floatcontainer doc_header' src='/design/x264_black/header.png' alt='logo' style='width: 90%; height: 60px;border: 4px double #7E7E7E; border-radius: 0 60px; margin: 0 auto;' ><br><br>
+<img class='floatcontainer doc_header' src='/design/ex1080_default/header.png' alt='logo' style='width: 90%; height: 60px;border: 4px double #7E7E7E; border-radius: 0 60px; margin: 0 auto;' ><br><br>
 <div  style=\"background-color:#D90000; width:60%; border:2px solid #FFFFFF; border-radius:0 16px;\">
 <font size=\"3\" style=\"font-family:'Times New Roman',Times,serif;'\" color=\"#FFFFFF\">
         Ungültige Daten
@@ -383,13 +383,10 @@ if ($action == 'edit')
   else
     die();
 
-  //$sbtext  = html_entity_decode(mb_convert_encoding(strtr($_POST['sbtext'], $map), 'UTF-8', 'ISO-8859-1'), ENT_QUOTES, 'UTF-8');
-  //$sbtext  = w1250_to_utf8($_POST['sbtext']);
   $sbtext  = mb_convert_encoding(urldecode(decode_unicode_url($_POST['sbtext'])), "ISO-8859-1");
   $sql     = "SELECT userid, text, class FROM ".$tabelle.", users WHERE users.id = ".$tabelle.".userid AND ".$tabelle.".id = ".$sbid;
   $editarr = $db -> querySingleArray($sql);
   $edituid = $editarr['userid'];
-  //$editshb = $editarr['text'];
   $editshb = mb_convert_encoding(urldecode(decode_unicode_url($editarr['text'])), "ISO-8859-1");
   $editcls = $editarr['class'];
 
@@ -495,7 +492,7 @@ elseif ($action == "pview")
       $time = strftime("%H:%M",$arr2['added']);
       $msg = format_comment($arr2['msg']);
       print "
-  <b><span class='date'>(".$time.")</span> <font class=".get_class_color($color).">".$nick."</font> : ".$msg."</b><br>";
+			<b><span class='date'>(".$time.")</span> <font class=".get_class_color($color).">".$nick."</font> : ".$msg."</b><br>";
     }
   }
   print "
@@ -510,7 +507,6 @@ elseif ($action == "pview")
 else
 {
   $text = mb_convert_encoding(urldecode(decode_unicode_url($_POST['shbox_text'])), "ISO-8859-1");
-  //$text = iconv('windows-1252', 'UTF-8', $text);
   $send = $_POST['sent'];
 
   if (get_user_class() >= UC_ADMINISTRATOR)

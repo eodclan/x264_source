@@ -336,7 +336,7 @@ print "
                         </div>
                         <!--/col-->
                     </div>
-		<div id='sbframe'></div></div>  
+					<div id='sbframe'></div></div>  
                   ".($CURUSER['bgshout'] == "1"?"
                   <script type='text/javascript'>showshout();</script>":"");
 // Ende Shoutbox

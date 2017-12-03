@@ -1,5 +1,5 @@
 <?php
-require("include/config.php");
+require_once(dirname(__FILE__) . "/include/bittorrent.php");
 
 define("REDIR_EXTERNAL", 1);
 define("REDIR_INTERNAL", 2);
