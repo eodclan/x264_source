@@ -1,14 +1,16 @@
 <?php
 // ************************************************************************************//
-// * D€ Source 2014
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
 // * 
-// * Copyright (c) 2013 - 2014 D@rk-€vil™
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
-require "include/bittorrent.php";
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn(false);
 
 loggedinorreturn();
@@ -112,7 +114,7 @@ $timerange = array(3600 => "1 Stunde",
 $types = array('torrentupload', 'torrentedit', 'torrentdelete', 'torrentgranted','commentpost', 'promotion', 'demotion', 'addwarn', 'remwarn', 'security_tactics', 'accenabled', 'accdisabled', 'accdeleted', 'parked', 'ctracker', 'modmessages', 'passkeyreset', 'passkeyadminreset', 'cleanup', 'cleanuperr', 'denied',); 
 // delete items older than two weeks
 $secs = 14 * 24 * 3600;
-x264_bootstrap_header("Site log");
+x264_admin_header("Site log");
 mysql_query("DELETE FROM sitelog WHERE " . time() . " - UNIX_TIMESTAMP(added) > $secs") or sqlerr(__FILE__, __LINE__);
 $where = "WHERE ";
 $typelist = Array();
@@ -327,5 +329,5 @@ echo"
                     </div>";	
 } 
 
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

@@ -1,5 +1,16 @@
 <?php
-require "include/bittorrent.php";
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn(false);
 loggedinorreturn();
 check_access(UC_MODERATOR);
@@ -38,7 +49,7 @@ if (!$action) {
 if (get_user_class() < UC_MODERATOR)
 stderr("Fehler", "Zugriff Verweigert.");
 
-x264_bootstrap_header();
+x264_admin_header();
 ?>
 <script type="text/javascript">
 function checkAll(ref)
@@ -200,7 +211,7 @@ print"
                         </div>
                         <!--/col-->
                     </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 }
 
 //////////////////////////
@@ -274,7 +285,7 @@ $setanswered = "";
 
 $iidee = $arr4["id"];
 
-    x264_bootstrap_header("Team-PM ansehen");
+    x264_admin_header("Team-PM ansehen");
     if ($pmshow === true)
 {
   stdmsg("Achtung", $pmarr['username']." betrachtet seit ".get_date_time($data[1])." diese Team PM. Bitte lasse diesem Teammitglied den Vortritt.");
@@ -328,7 +339,7 @@ print"
                         </div>
                         <!--/col-->
                     </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 }
 
 //////////////////////////
@@ -382,7 +393,7 @@ $answer = $arr4["answer"];
 }
 
 
-    x264_bootstrap_header("Antwort Ansicht");
+    x264_admin_header("Antwort Ansicht");
 print "
                     <div class='row'>
                         <div class='col-lg-12'>
@@ -424,7 +435,7 @@ print"
                         </div>
                         <!--/col-->
                     </div>";
-    x264_bootstrap_footer();
+    x264_admin_footer();
 
 }
 
@@ -453,7 +464,7 @@ stderr("Fehler", "Keinen User gefunden mit der ID.");
 $res2 = mysql_query("SELECT * FROM staffmessages WHERE id=$answeringto") or die(mysql_error());
 $array = mysql_fetch_assoc($res2);
 
-x264_bootstrap_header("Antwort zur Team PM", false);
+x264_admin_header("Antwort zur Team PM", false);
 
 print "
                     <div class='row'>
@@ -497,7 +508,7 @@ print"
                         </div>
                         <!--/col-->
                     </div>";
-    x264_bootstrap_footer();
+    x264_admin_footer();
 }
 
 

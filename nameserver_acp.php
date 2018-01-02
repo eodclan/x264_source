@@ -1,23 +1,20 @@
 <?php
-/*
-// +--------------------------------------------------------------------------+
-// | Projekt:    Nameserver Lookup Hack V2                                    |
-// +--------------------------------------------------------------------------+
-// | Info:   Wer diese Zeilen entfernt und es wird entdeckt hat mit           |
-// |                                                                          |
-// |         Nachfolgen zu rechnen greetz D@rk-€vil™                          |
-// +--------------------------------------------------------------------------+
-// +--------------------------------------------------------------------------+
-// | Obige Zeilen dürfen nicht entfernt werden!    Do not remove above lines! |
-// +--------------------------------------------------------------------------+
-*/
-ob_start("ob_gzhandler");
-
-require "include/bittorrent.php";
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 
 dbconn();
 
-x264_bootstrap_header("Nameserver Lookup");
+x264_admin_header("Nameserver Lookup");
 
 check_access(UC_DEV);
 security_tactics();
@@ -212,5 +209,5 @@ function GetParam($ParamName, $Method = "P", $DefaultValue = "") {
   }
 }
 
-x264_bootstrap_footer(); 
+x264_admin_footer(); 
 ?>

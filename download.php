@@ -1,5 +1,16 @@
 <?php
-require_once(dirname(__FILE__)."/include/bittorrent.php");
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 require_once(dirname(__FILE__)."/include/benc.php");
 
 dbconn();
@@ -102,7 +113,7 @@ if ($GLOBALS["CLIENT_AUTH"] == CLIENT_AUTH_PASSKEY && $GLOBALS["MEMBERSONLY"])
   $torrent = bdec_file($fn, filesize($fn));
   $torrent["value"]["announce"] = array("type" => "string", "value" => $announce_url);
   $torrent["value"]["nvuserid"] = array("type" => "integer", "value" => $CURUSER["id"]);
-  $comment = "Powered by D€ Source 2017 from ".$GLOBALS["SITENAME"];
+  $comment = "Powered by D€ Source 2018 from ".$GLOBALS["SITENAME"];
   $created = $GLOBALS["SITENAME"];
   $torrent["value"]["comment"] = array("type" => "string", "value" => $comment);
   $torrent["value"]["created by"] = array("type" => "string", "value" => $created);

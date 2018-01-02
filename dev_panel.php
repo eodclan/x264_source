@@ -1,16 +1,16 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
 // * Version: 2.0
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
-require_once("include/bittorrent.php");
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 
 dbconn(false);
 loggedinorreturn();
@@ -23,7 +23,7 @@ elseif (isset($_POST["action"])) $action = htmlentities(trim($_POST["action"]));
 elseif (isset($_GET["action"])) $action = htmlentities(trim($_GET["action"]));
 else $action = "view";
 
-x264_bootstrap_header("Tracker Config");
+x264_admin_header("Tracker Config");
 
 $CONF["PIC_URL"] = $GLOBALS["ADMIN_BOOTSTRAP_PATTERN"].$GLOBALS["ss_uri"]."/";
 $dbname          = "config";
@@ -489,5 +489,5 @@ print "
                     </div>
 </form>"; 
 }
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

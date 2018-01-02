@@ -1,5 +1,16 @@
 <?php
-require_once(dirname(__FILE__)."/include/bittorrent.php");
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 require_once(dirname(__FILE__)."/include/dagent.class.php");
 
 dbconn();
@@ -37,7 +48,7 @@ $query = "SELECT * FROM agents ORDER BY $sort $art";
 $result = mysql_query($query);
 // agent_id 	agent_name 	hits 	ins_date 	aktiv
 
-x264_bootstrap_header("Clienten verwalten");
+x264_admin_header("Clienten verwalten");
 print "
                     <div class='row'>
                         <div class='col-lg-12'>
@@ -89,4 +100,4 @@ if(isset($_GET['edit']) AND $_GET['edit'] == $data -> agent_id){$bg = "green";
                         <!--/col-->
                     </div>
 	
-<?x264_bootstrap_footer();?>
+<?x264_admin_footer();?>

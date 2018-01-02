@@ -1,25 +1,26 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
 // * Version: 2.0
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
+// ************************************************************************************// 
 ob_start("ob_gzhandler");
-require "include/bittorrent.php";
+require_once(dirname(__FILE__) . "/include/engine.php");
+
 // Lade Faq Klasse
-include 'include/Classes/Faq.php';
+require_once(dirname(__FILE__) . "/include/Classes/Faq.php");
 dbconn(true);
 loggedinorreturn();
 check_access(UC_ADMINISTRATOR);
 security_tactics();	
 
-x264_bootstrap_header("FAQ");
+x264_admin_header("FAQ");
 
 $action = $_GET['action'];
 $Faq = new Faq();
@@ -60,5 +61,5 @@ switch($action) {
 			break;
 }
 
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

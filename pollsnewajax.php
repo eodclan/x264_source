@@ -1,8 +1,16 @@
 <?php
-
-// new poll system by tantetoni2
-
-require("include/bittorrent.php");
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn(false);
 loggedinorreturn();
 
@@ -154,7 +162,6 @@ if($_POST['voteid'])
 
 if($Result['pollid']){
 
-begin_frame("Aktuelle Umfrage",false, "99%");
 echo"<center><b>".$Result['frage']."</b><br><br></center>";
 echo"
 <table border=0 cellpadding=0 cellspacing=0 width=100% align=center> 
@@ -282,6 +289,5 @@ echo "<br><center>$spacer</center>";
 if( get_user_class() >= UC_MODERATOR)
 echo"<br><center><a href=\"addpollnew.php\">Adminstration</a></center>";
 
-end_frame();
 
 }

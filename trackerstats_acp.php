@@ -1,23 +1,22 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
 // * Version: 2.0
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
-
-require_once(dirname(__FILE__) . "/include/bittorrent.php");
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn();
 loggedinorreturn();
 check_access(UC_TEAMLEITUNG);
 security_tactics();
 
-x264_bootstrap_header('Interne Statistik');
+x264_admin_header('Interne Statistik');
 ?>
                     <div class='row'>
                         <div class='col-lg-12'>
@@ -148,5 +147,5 @@ x264_bootstrap_header('Interne Statistik');
                         <!--/col-->
                     </div>	
 <?
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

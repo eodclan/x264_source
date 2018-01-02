@@ -1,6 +1,17 @@
 <?php
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
 if (empty($_SERVER["HTTP_HOST"])) 
-	require_once(dirname(__FILE__)."/include/bittorrent.php");
+	require_once(dirname(__FILE__) . "/include/engine.php");
 	require_once(dirname(__FILE__) . "/include/Classes/Cleanup.php");
 
 if (!empty($_SERVER["HTTP_HOST"])) 
@@ -23,7 +34,7 @@ docleanup();
 
 write_log("cleanup","Cleanup erfolgreich ausgefuehrt".(!empty($_SERVER["HTTP_HOST"])?" (Manuell ausgefuehrt durch ".$CURUSER['username'].")":""));
 
-x264_bootstrap_header('Cleanup ACP');
+x264_admin_header('Cleanup ACP');
 
 check_access(UC_DEV);
 security_tactics();
@@ -45,5 +56,5 @@ echo"
                         <!--/col-->
                     </div>";
 
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

@@ -1,12 +1,23 @@
 <?php
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+
 if (is_dir($_SERVER["DOCUMENT_ROOT"] . "include")) $doc_root = $_SERVER["DOCUMENT_ROOT"];
 else $doc_root = $_SERVER["DOCUMENT_ROOT"] . "/";
 
-require_once("include/bittorrent.php");
+require_once("include/engine.php");
 
 dbconn();
 loggedinorreturn();
-
 check_access(UC_BOSS);
 security_tactics();
 
@@ -79,7 +90,7 @@ function view()
   print("</table>");
 }
 
-x264_bootstrap_header("Alle PMs - PM Spion - Alle PMs löschen - PM Cleaner - Repair DB");
+x264_admin_header("Alle PMs - PM Spion - Alle PMs löschen - PM Cleaner - Repair DB");
 
 ?>
 <script type="text/javascript" language="JavaScript">
@@ -644,7 +655,7 @@ echo"
                         </div>
                         <!--/col-->
                     </div>"; 
-x264_bootstrap_footer();			
+x264_admin_footer();			
   die;
 }
 
@@ -797,5 +808,5 @@ echo"
                         </div>
                         <!--/col-->
                     </div>";   
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

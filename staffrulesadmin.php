@@ -1,19 +1,20 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
 // * Version: 2.0
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
+// ************************************************************************************// 
 ob_start("ob_gzhandler");
-require "include/bittorrent.php";
+require_once(dirname(__FILE__) . "/include/engine.php");
+
 // Lade Staffrules Klasse
-include 'include/Classes/Staffrules.php';
+require_once(dirname(__FILE__) . "/include/Classes/Staffrules.php");
 dbconn(true);
 loggedinorreturn();
 if (get_user_class() < UC_TEAMLEITUNG)
@@ -21,7 +22,7 @@ if (get_user_class() < UC_TEAMLEITUNG)
 
 check_access(UC_SYSOP);
 security_tactics();
-x264_bootstrap_header("Staff Rules");	
+x264_admin_header("Staff Rules");	
 
 $action = $_GET['action'];
 $Staffrules = new Staffrules();
@@ -62,5 +63,5 @@ switch($action) {
 			break;
 }
 
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

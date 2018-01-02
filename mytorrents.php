@@ -1,26 +1,23 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
 // * Version: 2.0
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
-require_once("include/bittorrent.php");
-
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 require_once(dirname(__FILE__) . "/include/class_pager.php");
+
 $page = ( ($_GET['page'] > 0) ? intval($_GET['page']) : 1 ); 
 
 hit_start();
-
 dbconn(false);
-
 hit_count();
-
 loggedinorreturn();
 
 x264_header($CURUSER["username"] . "'s torrents");
@@ -61,9 +58,6 @@ print "
                                     </div>
                                 </div>
                                 <div class='card-block'>";
-
-	//$pagertop = $pagerbottom = construct_page_nav($page, $torrentsperpage, $BASEURL . '/mytorrents.php?', $count, $addparam);
-	//$limit    = 'LIMIT ' . (intval($_GET['page']) * $torrentsperpage) . ', ' . $torrentsperpage; 
 
 	list($pagertop, $pagerbottom, $limit) = pager(20, $count, "mytorrents.php?");
 

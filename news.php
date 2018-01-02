@@ -1,5 +1,16 @@
 <?php
-require_once(dirname(__FILE__) . "/include/bittorrent.php");
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn();
 loggedinorreturn();
 
@@ -97,7 +108,7 @@ print "
     else
     {
       $returnto = $_GET['returnto'];
-      x264_bootstrap_header();
+      x264_admin_header();
 echo"
                     <div class='row'>
                         <div class='col-lg-12'>
@@ -144,12 +155,12 @@ _editor_lang = "de";
 HTMLArea.replace("newseditor")
 </script>
 <?php	
-        x264_bootstrap_footer();
+        x264_admin_footer();
         die;
     } 
 } 
 // Other Actions and followup    ////////////////////////////////////////////
-x264_bootstrap_header("Site news");
+x264_admin_header("Site news");
 echo"
                     <div class='row'>
                         <div class='col-lg-12'>
@@ -268,7 +279,7 @@ print "
         </div>
         <!--/.col-->
     </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 die;
 
 ?>

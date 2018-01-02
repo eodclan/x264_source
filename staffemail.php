@@ -1,11 +1,22 @@
 <?
-require "include/bittorrent.php";
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn();
 loggedinorreturn();
 
 $action = $_GET['action'];
 
-x264_bootstrap_header("E-Mail versenden");
+x264_admin_header("E-Mail versenden");
 
 check_access(UC_MODERATOR);
 security_tactics();
@@ -134,5 +145,5 @@ print"
                         </div>
                         <!--/col-->
                     </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

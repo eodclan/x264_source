@@ -1,14 +1,16 @@
 <?php
 // ************************************************************************************//
-// * Staff CP Version 2.0 
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
 // * 
-// * Copyright (c) 2010 D@rk-€vil™
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
-require_once("include/bittorrent.php");
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn();
 loggedinorreturn();
 security_tactics();
@@ -52,7 +54,7 @@ $pk = $_POST['pk'];
 	
 }
 
-x264_bootstrap_header('Benutzer Suchen');
+x264_admin_header('Benutzer Suchen');
 ?>
                     <div class='row'>
                         <div class='col-lg-12'>
@@ -142,7 +144,7 @@ x264_bootstrap_header('Benutzer Suchen');
                     </div>
 	
 <?
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>
 
 

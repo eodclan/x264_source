@@ -1,20 +1,22 @@
 <?php
 // ************************************************************************************//
-// * Staff CP Version 5.0 
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
 // * 
-// * Copyright (c) 2010 D@rk-€vil™
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
-require_once("include/bittorrent.php");
-require_once("include/Classes/ServerInfo.class.php");
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
+require_once(dirname(__FILE__) . "/include/Classes/ServerInfo.class.php");
 dbconn();
 loggedinorreturn();
 check_access(UC_PARTNER);
 security_tactics();
-x264_bootstrap_header("Backend ACP ".$GLOBALS["X264_STAFFACP_VERSION"]."");
+x264_admin_header("Backend ACP ".$GLOBALS["X264_STAFFACP_VERSION"]."");
 
 		$peers 		= number_format(get_row_count("peers"));
 		$seeder 	= get_row_count("peers", "WHERE seeder = 'yes'");
@@ -352,5 +354,5 @@ setTimeout("doUptime()",1000);
                     </div>
 <?	  
 }
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

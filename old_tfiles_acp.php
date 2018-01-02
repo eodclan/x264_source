@@ -1,4 +1,16 @@
 <?php
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+
 /////////////////////////////////////////////////////////
 //    Dokumentverzeichnis für das Löschen ermitteln    //
 /////////////////////////////////////////////////////////
@@ -8,7 +20,7 @@ else $doc_root = $_SERVER["DOCUMENT_ROOT"] . "/";
 if (is_dir($_SERVER["DOCUMENT_ROOT"] . "include")) $root = $_SERVER["DOCUMENT_ROOT"] . "include";
 else $root = $_SERVER["DOCUMENT_ROOT"] . "/include";
 
-require_once($root . "/bittorrent.php");
+require_once($root . "/engine.php");
 
 dbconn();
 loggedinorreturn();
@@ -40,7 +52,7 @@ function tabellen_zeile($inhalt, $error)
   }
 }
 
-x264_bootstrap_header("Tote Torrents l�schen");
+x264_admin_header("Tote Torrents l�schen");
 ?>
 <script type="text/javascript" language="JavaScript">
  function alle_auswaehlen(field)
@@ -169,5 +181,5 @@ echo"
                     </div>";  
 }
 
-x264_bootstrap_footer(true);
+x264_admin_footer(true);
 ?>

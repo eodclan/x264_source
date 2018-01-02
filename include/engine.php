@@ -1,18 +1,17 @@
 <?php
 // ************************************************************************************//
-// * D€ Source 2017
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
-// * Version: 1.7
+// * Version: 2.0
 // * 
-// * Copyright (c) 2017 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
 // ************************************************************************************// 
 
 // DB and Config Engine
-require_once(dirname(__FILE__) . "/db_setup.php");
 require_once(dirname(__FILE__) . "/config.php");
 require_once(dirname(__FILE__) . "/Classes/MySQL.php");
 require_once(dirname(__FILE__) . "/Classes/MemCache.php");
@@ -659,7 +658,7 @@ function x264_header($title = "", $msgalert = true)
 }
 
 // Admin Bootstrap Design System
-function x264_bootstrap_header($title = "", $msgalert = true)
+function x264_admin_header($title = "", $msgalert = true)
 {
 
 	global $CURUSER, $_SERVER, $PHP_SELF, $db, $mc1;
@@ -822,7 +821,7 @@ function x264_footer()
     include("".$GLOBALS["DESIGN_PATTERN"].$GLOBALS["ss_uri"]. "/templates/ex1080_footer.php");
 }
 
-function x264_bootstrap_footer()
+function x264_admin_footer()
 {
     global $CURUSER, $_SERVER, $RUNTIME_START;
     $query = mysql_query("SELECT COUNT(*) AS attacks FROM sitelog WHERE typ = 'ctracker'") or sqlerr();

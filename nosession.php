@@ -1,5 +1,16 @@
 <?php
-require_once(dirname(__FILE__) . "/include/bittorrent.php");
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 
 header("Content-Type: text/html; charset=iso-8859-1");
 header("Pragma: No-cache");
@@ -11,8 +22,8 @@ header("Cache-Control: private");
 <html lang='en'>
 <head>
         	<!-- ####################################################### -->
-        	<!-- #   Powered by EX 1080 Source Version 1.0.            # -->
-        	<!-- #   Copyright (c) 2017 D@rk-€vil™.                    # -->
+        	<!-- #   Powered by D€ Source 2018.                        # -->
+        	<!-- #   Copyright (c) 2017 - 2018 D@rk-€vil™.             # -->
         	<!-- #   All rights reserved.                              # -->
         	<!-- ####################################################### -->			
 			<meta charset='utf-8'>

@@ -1,19 +1,20 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
 // * Version: 2.0
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
+// ************************************************************************************// 
 ob_start("ob_gzhandler");
-require "include/bittorrent.php";
+require_once(dirname(__FILE__) . "/include/engine.php");
+
 // Lade Rules Klasse
-include 'include/Classes/Rules.php';
+require_once(dirname(__FILE__) . "/include/Classes/Rules.php");
 
 dbconn(true);
 x264_header("Rules");

@@ -1,6 +1,16 @@
 <?php
-
-require_once("include/bittorrent.php");
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 
 hit_start();
 
@@ -19,9 +29,7 @@ if (!$id)
 	die();
 
 dbconn();
-
 hit_count();
-
 loggedinorreturn();
 
 $res = mysql_query("SELECT torrents.name,torrents.owner,torrents.seeders,torrents.activated,users.class FROM torrents LEFT JOIN users ON torrents.owner=users.id WHERE torrents.id = $id");
@@ -74,9 +82,6 @@ else
 <h2>Torrent gel&ouml;scht!</h2>
 <p><?= $ret ?></p>
 <?
-
 x264_footer();
-
 hit_end();
-
 ?>

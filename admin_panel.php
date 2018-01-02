@@ -1,21 +1,23 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
 // * Version: 2.0
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
+// ************************************************************************************// 
 ob_start("ob_gzhandler");
-require "include/bittorrent.php";
+require_once(dirname(__FILE__) . "/include/engine.php");
+
 // Lade Admin CP Klasse
-include 'include/Classes/Admin.php';
+require_once(dirname(__FILE__) . "include/Classes/Admin.php");
+
 dbconn(true);
-x264_bootstrap_header("Administrator Panel");
+x264_admin_header("Administrator Panel");
 
 check_access(UC_MODERATOR);
 security_tactics();
@@ -23,5 +25,5 @@ security_tactics();
 $Admin = new Admin();
 $Admin->AdminList();
 
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

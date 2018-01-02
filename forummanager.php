@@ -1,5 +1,16 @@
 <?php
-require "include/bittorrent.php";
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn();
 loggedinorreturn();
 
@@ -232,7 +243,7 @@ if (get_user_class() < UC_MODERATOR) {
 stderr("Error", "<b><p>Aber Hallo Kollege, wat willst du denn hier?</p></b>");
 
 } else {
-x264_bootstrap_header("".$GLOBALS["SITENAME"]." Forum Manager");
+x264_admin_header("".$GLOBALS["SITENAME"]." Forum Manager");
 print "
                     <div class='row'>
                         <div class='col-lg-12'>
@@ -569,5 +580,5 @@ print "
                         </div>
                         <!--/col-->
                     </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

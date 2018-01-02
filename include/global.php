@@ -1,12 +1,12 @@
 <?php
 // ************************************************************************************//
-// * D€ Source 2017
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
-// * Version: 1.7
+// * Version: 2.0
 // * 
-// * Copyright (c) 2017 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
 // ************************************************************************************// 
@@ -781,98 +781,6 @@ function textbbcode_edit($text, $aktive = TRUE) {
           "</div>");
 }
 
-// -------- Begins a main frame
-function begin_main_frame()
-{
-    print("<table class=\"main\" width=\"750\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">" . "<tr><td class=\"embedded\">\n");
-}
-// -------- Ends a main frame
-function end_main_frame()
-{
-    print("</td></tr></table>\n");
-}
-
-function begin_frame($caption = "", $center = false, $width = "100%")
-{
-  if ($center)
-    $tdextra .= " style=\"text-align: center\"";
-
-  print "
-    <table cellpadding='4' cellspacing='1' border='0' style='width:".$width."' class='tableinborder'>
-      <tr>
-        <td class='tabletitle' colspan='10' width='100%' style='text-align: center'><b>".$caption."</b></td>
-      </tr>
-      <tr>
-        <td width='100%' class='tablea'".$tdextra.">";
-}
-
-function attach_frame($padding = 10)
-{
-    print("</td></tr><tr><td class=\"tablea\" style=\"border-top: 0px\">\n");
-}
-
-function end_frame()
-{
-    print("</td></tr></table><br>\n");
-}
-
-function begin_table($fullwidth = false, $padding = 4)
-{
-    if ($fullwidth)
-        $width = " width=\"100%\"";
-    print("<table class=\"tableinborder\" $width border=\"0\" cellspacing=\"1\" cellpadding=\"$padding\">\n");
-}
-
-function end_table()
-{
-    print("</table><br>\n");
-}
-// -------- Inserts a smilies frame
-// (move to globals)
-
-function insert_smilies_frame($breite_tabelle = 800, $pro_zeile = 5, $private = "yes")
-{
-   print("<table summary=\"\" style=\"width:" . $breite_tabelle . "px;\" cellpadding=\"5\" cellspacing=\"1\" align=\"center\" border=\"0\" class=\"tableinborder\">\n");
-
-   $sql = "SELECT * FROM smilies WHERE active = 'yes' " . (($private == "yes") ? "AND private = 'yes'" : "") . " ORDER BY id ASC";
-   $res = mysql_query($sql) or sqlerr(__FILE__, __LINE__);
-
-   if (mysql_num_rows($res) > 0)
-   {
-     print("    <tr><td class=\"tabletitle\" colspan=\" . $pro_zeile . \"><center><b>" . mysql_num_rows($res) . "</b> " . (($private == "yes") ? "Standard-Smilieys" : "Smilieys gesamt") . "</center></td></tr>\n");
-     $zeile = 0;
-     while ($arr = mysql_fetch_array($res))
-     {
-       if ($zeile == 0) print("  <tr>\n");
- 
-       $pic = "pic/smilies/" . $arr["path"];
-       list($width, $height, $type, $attr) = getimagesize($pic);
-       print("    <td class=\"tablea\" valign=\"bottom\" width=\"100\">\n");
-       print("      <center>\n");
-       print("        <img src=\"" . $pic . "\" border=\"0\" title=\"" . $arr["code"] . "\" " . (($width > round($breite_tabelle/$pro_zeile)) ? "width=\"" . round($breite_tabelle/$pro_zeile) . "\"" : $attr ) . " />\n");
-       print("        <br /><br />\n");
-       print("        " . $arr["code"] . "\n");
-       print("      </center>\n");
-       print("     </td>\n");
-       $zeile++;
-       if ($zeile == $pro_zeile)
-       {
-         print("  </tr>\n");
-         $zeile = 0;
-       }
-     }
-     if (($zeile != $pro_zeile) && ($zeile != 0))
-     {
-        print("    <td class=\"tablea\" colspan=\"" . ($pro_zeile - $zeile) . "\">&nbsp;</td>\n");
-        print("  </tr>\n");
-     }
-   }
-   else
-     print("    <tr><td class=\"tablea\"><i>keine Eintr&auml;ge gefunden</i></td></tr>\n");
-
-   print("</table>\n");
-}  
-
 function sql_timestamp_to_unix_timestamp($s)
 {
     return mktime(substr($s, 11, 2), substr($s, 14, 2), substr($s, 17, 2), substr($s, 5, 2), substr($s, 8, 2), substr($s, 0, 4));
@@ -1399,8 +1307,6 @@ print"
 		<div class='x264_error_wrap_info'>".$stdmessage."</div>
 		<div style='text-align:center;margin:40px 0 0 0;'><a href='index.php' class='x264_new_error_klicks' style='width:200px;margin-left:240px;'>Back to WebSite</a></div>
 	</div>";
-    //stdmsg("Fehler", $stdmessage);
-    //x264_footer();
     exit();
   }
 }

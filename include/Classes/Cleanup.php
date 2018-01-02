@@ -1,10 +1,21 @@
 <?php
-require_once(dirname(__FILE__) . "../../bittorrent.php");
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "../../engine.php");
 
 function cler($cause)
 {
-write_log("cleanup","<font color=red>Der Cleanup ist fehlgeschlagen: ".$cause."</font>");
-die();
+	write_log("cleanup","<font color=red>Der Cleanup ist fehlgeschlagen: ".$cause."</font>");
+	die();
 }
 
 function docleanup()

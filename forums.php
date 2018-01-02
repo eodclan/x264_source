@@ -1,5 +1,16 @@
 <?php
-require "include/bittorrent.php";
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn(false);
 loggedinorreturn();
 
@@ -17,7 +28,7 @@ function set_forum_online()
 	if ($trackerdienste[0] == "0")
 	{
 		stdmsg("Achtung","Das Forum ist gerade deaktiviert.");
-		x264_bootstrap_footer();
+		x264_admin_footer();
 		die();
 	}
 }
@@ -294,7 +305,7 @@ $forumid = $_GET["forumid"];
 if (!is_valid_id($forumid))
 die;
 
-x264_bootstrap_header("".$GLOBALS["SITENAME"]." Forum");
+x264_admin_header("".$GLOBALS["SITENAME"]." Forum");
 set_forum_online();
 insert_compose_frame($forumid);
 
@@ -302,7 +313,7 @@ print "
 		</div>
 </div>
 </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 die;
 }
 
@@ -586,7 +597,7 @@ $pagemenu .= "<a href=?action=viewtopic&topicid=$topicid&page=".($page + 1)."><b
 
 $res = mysql_query("SELECT * FROM posts WHERE topicid=$topicid ORDER BY id LIMIT $offset,$perpage") or sqlerr(__FILE__, __LINE__);
 
-x264_bootstrap_header("".$GLOBALS["SITENAME"]." Forum");
+x264_admin_header("".$GLOBALS["SITENAME"]." Forum");
 set_forum_online();
 print "
 <div class='x264_wrapper_content_out_mount'>
@@ -994,7 +1005,7 @@ print "
 		</div>
 </div>
 </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 die;
 }
 
@@ -1037,11 +1048,11 @@ $topicid = $_GET["topicid"];
 if (!is_valid_id($topicid))
    stderr("Forum Fehler", "<b><p>Falsche Themen ID $topicid.</p></b>");
 
-x264_bootstrap_header("".$GLOBALS["SITENAME"]." Forum");
+x264_admin_header("".$GLOBALS["SITENAME"]." Forum");
 set_forum_online();
 insert_compose_frame($topicid, false, true);
 
-x264_bootstrap_footer();
+x264_admin_footer();
 die;
 }
 
@@ -1053,11 +1064,11 @@ $topicid = $_GET["topicid"];
 if (!is_valid_id($topicid))
 die;
 
-x264_bootstrap_header("".$GLOBALS["SITENAME"]." Forum");
+x264_admin_header("".$GLOBALS["SITENAME"]." Forum");
 set_forum_online();
 insert_compose_frame($topicid, false);
 
-x264_bootstrap_footer();
+x264_admin_footer();
 die;
 }
 
@@ -1283,7 +1294,7 @@ $locked = ($arr2["locked"] == 'yes');
 if (($CURUSER["id"] != $arr["userid"] || $locked) && get_user_class() < UC_MODERATOR)
     stderr("Forum Fehler", "<b><p>Du hast keine Berechtigung um diesen Beitrag zu ändern!</p></b>");
 
-x264_bootstrap_header("".$GLOBALS["SITENAME"]." Forum");
+x264_admin_header("".$GLOBALS["SITENAME"]." Forum");
 set_forum_online();
 print "
 <div class='x264_wrapper_content_out_mount'>
@@ -1357,7 +1368,7 @@ print "
 		</div>
 </div>
 </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 die;
 }
   //-------- Action: Delete post
@@ -1591,7 +1602,7 @@ $offset = $first - 1;
 
 $topicsres = mysql_query("SELECT * FROM topics WHERE forumid=$forumid ORDER BY sticky, lastpost DESC LIMIT $offset,$perpage") or stderr("SQL Fehler", mysql_error());
 
-x264_bootstrap_header("".$GLOBALS["SITENAME"]." Forum");
+x264_admin_header("".$GLOBALS["SITENAME"]." Forum");
 set_forum_online();
 $numtopics = mysql_num_rows($topicsres);
 
@@ -1780,7 +1791,7 @@ print "
 		</div>
 </div>
 </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 die;
 }
 
@@ -1792,7 +1803,7 @@ $maxresults = 10;
 
 $res = mysql_query("SELECT id, userid, forumid, subject, guestuser, lastpost FROM topics ORDER BY lastpost") or sqlerr(__FILE__, __LINE__);
 
-x264_bootstrap_header("".$GLOBALS["SITENAME"]." Forum");
+x264_admin_header("".$GLOBALS["SITENAME"]." Forum");
 set_forum_online();
 print "
 <div class='x264_wrapper_content_out_mount'>
@@ -1899,7 +1910,7 @@ print "
 		</div>
 </div>
 </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 die;
 }
 
@@ -1907,7 +1918,7 @@ die;
   //---- Search
 
 if ($action == "search") {
-x264_bootstrap_header("".$GLOBALS["SITENAME"]." Forum");
+x264_admin_header("".$GLOBALS["SITENAME"]." Forum");
 set_forum_online();
 print "
 <div class='x264_wrapper_content_out_mount'>
@@ -2027,7 +2038,7 @@ print "
 		</div>
 </div>
 </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 die;
 }
 
@@ -2044,7 +2055,7 @@ print "
 		</div>
 </div>
 </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 die;
 }
 
@@ -2057,7 +2068,7 @@ stderr("Forum Fehler", "<b><p>Unbekannte Action '$action'.</p></b>");
 
 $forums_res = mysql_query("SELECT * FROM forums ORDER BY sort, name") or sqlerr(__FILE__, __LINE__);
 
-x264_bootstrap_header("".$GLOBALS["SITENAME"]." Forum");
+x264_admin_header("".$GLOBALS["SITENAME"]." Forum");
 set_forum_online();
 
 #####################################################################################
@@ -2266,5 +2277,5 @@ print "
 		</div>
 </div>
 </div>";
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

@@ -13,7 +13,7 @@
 // * Sollten Sie diese Hinweise nicht achten kann dies fuer Sie rechtliche Folgen haben.
 // ************************************************************************************//
 
-require_once 'include/bittorrent.php';
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn();
 loggedinorreturn();
 

@@ -1,5 +1,16 @@
 <?php
-require "include/bittorrent.php";
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 
 function mkbytes($amount, $unit)
 {
@@ -77,7 +88,7 @@ if ($_POST['message'] != "" && $_POST["subject"] != "")
     stderr("Erfolg!", "Massen Upload Gutschrift wurde erfolgreich gutgeschrieben an folgende Benutzerränge:<br>" . substr($classnames,0,(strlen($classnames)-2)) . "<br><a href=\"massgift.php\">Zurück</a>");
 }else if ($HTTP_SERVER_VARS["REQUEST_METHOD"] == "POST") stderr("Fehler!", "Bitte die Felder Betreff und Nachricht ausfüllen!");
 
-x264_bootstrap_header("Massen Upload Gutschrift");
+x264_admin_header("Massen Upload Gutschrift");
 
 ?>
 <form method=post action="massgift.php" name="massgift">
@@ -159,5 +170,5 @@ x264_bootstrap_header("Massen Upload Gutschrift");
                     </div>	
 </form>
 <?
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

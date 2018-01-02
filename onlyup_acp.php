@@ -1,22 +1,21 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
 // * Version: 2.0
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
-
-require_once(dirname(__FILE__) . "/include/bittorrent.php");
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn();
 loggedinorreturn();
 check_access(UC_SYSOP);
 security_tactics();
-x264_bootstrap_header("Only Upload ACP");
+x264_admin_header("Only Upload ACP");
 
 if (get_user_class() >= UC_TEAMLEITUNG)
 {
@@ -116,5 +115,5 @@ print "
                         <!--/col-->
                     </div>
 </form>";	
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

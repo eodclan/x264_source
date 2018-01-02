@@ -1,10 +1,19 @@
 <?php
-require_once(dirname(__FILE__) . "/include/bittorrent.php");
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn(false);
 
 loggedinorreturn();
-
-//$lang = array_merge(load_language('global'), load_language('peerlist'));
 
 $id = (int) $_GET['id'];
 

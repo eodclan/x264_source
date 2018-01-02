@@ -1,9 +1,20 @@
 <?php
-require_once(dirname(__FILE__) . "/include/bittorrent.php");
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 
 dbconn(false);
 loggedinorreturn();
-x264_bootstrap_header("Umfragen ACP");
+x264_admin_header("Umfragen ACP");
 
 check_access(UC_ADMINISTRATOR);
 security_tactics();
@@ -1045,5 +1056,5 @@ if(isset($_POST['savesettings'])){
 
 }
 
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

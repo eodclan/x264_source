@@ -1,16 +1,16 @@
 <?php
 // ************************************************************************************//
-// * D€ Source 2017
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
-// * Version: 1.7
+// * Version: 2.0
 // * 
-// * Copyright (c) 2017 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
 // ************************************************************************************// 
-require_once(dirname(__FILE__) . "/include/bittorrent.php");
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn();
 loggedinorreturn();
 check_access(UC_ADMINISTRATOR);
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   die;
 }
 
-x264_bootstrap_header("Account erstellen");
+x264_admin_header("Account erstellen");
 ?>
 <form method="post" action="add_user.php">
                     <div class='row'>
@@ -87,5 +87,5 @@ x264_bootstrap_header("Account erstellen");
                     </div>
 </form>
 <?
-x264_bootstrap_footer();
+x264_admin_footer();
 ?>

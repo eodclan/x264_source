@@ -1,5 +1,16 @@
 <?php
-require_once("include/bittorrent.php");
+// ************************************************************************************//
+// * D€ Source 2018
+// ************************************************************************************//
+// * Author: D@rk-€vil™
+// ************************************************************************************//
+// * Version: 2.0
+// * 
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
+// ************************************************************************************//
+// * License Typ: Creative Commons licenses
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 dbconn();
 loggedinorreturn(); 
 
@@ -14,8 +25,8 @@ mysql_query("UPDATE users SET seedbonus = seedbonus - '$amount' WHERE id = '$fro
 if($CURUSER["id"] == $to) {
 print("You can not pass bonuses themselves.");
 } elseif($CURUSER["seedbonus"] <= $amount) {
-print("You do not have enough bonuses");
+	print("You do not have enough bonuses");
 } else {
-print("Erfolgreich, deine Seed Bonus Spende wurde gesendet.");
+	print("Erfolgreich, deine Seed Bonus Spende wurde gesendet.");
 }
 ?>

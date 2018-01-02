@@ -1,22 +1,22 @@
 <?php
 // ************************************************************************************//
-// * X264 Source
+// * D€ Source 2018
 // ************************************************************************************//
 // * Author: D@rk-€vil™
 // ************************************************************************************//
-// * Version: 3.0
+// * Version: 2.0
 // * 
-// * Copyright (c) 2015 D@rk-€vil™. All rights reserved.
+// * Copyright (c) 2017 - 2018 D@rk-€vil™. All rights reserved.
 // ************************************************************************************//
 // * License Typ: Creative Commons licenses
-// ************************************************************************************//
-require_once(dirname(__FILE__) . "/include/bittorrent.php");
+// ************************************************************************************// 
+require_once(dirname(__FILE__) . "/include/engine.php");
 require_once(dirname(__FILE__) . "/include/benc.php");
 require_once(dirname(__FILE__) . "/include/dagent.class.php");
 
 hit_start();
   
-function hex2bin1($hexdata)
+function hex_engine($hexdata)
 {
   for ($i=0;$i<strlen($hexdata);$i+=2)
   {
@@ -217,7 +217,7 @@ if (!isset($self))
 {
   if ($GLOBALS["CLIENT_AUTH"] == CLIENT_AUTH_PASSKEY)
   {
-//    $rz = mysql_query("SELECT id, uploaded, downloaded, class, tlimitseeds, tlimitleeches, tlimitall FROM users WHERE passkey=".sqlesc(hex2bin1($passkey))." AND enabled = 'yes' ORDER BY last_access DESC LIMIT 1") or err("Tracker error 2");
+//    $rz = mysql_query("SELECT id, uploaded, downloaded, class, tlimitseeds, tlimitleeches, tlimitall FROM users WHERE passkey=".sqlesc(hex_engine($passkey))." AND enabled = 'yes' ORDER BY last_access DESC LIMIT 1") or err("Tracker error 2");
     $downloaddata = $db -> querySingleArray("SELECT id, userid, torrentid FROM downloadtickets WHERE hash = ".sqlesc($passkey));
     if (!is_numeric($downloaddata['userid']))
       err("Ungueltiger PassKey. Lies das FAQ!11");
@@ -266,7 +266,7 @@ else
   {
     $res = mysql_query("SELECT passkey,id FROM users WHERE id=$userid AND enabled = 'yes'");
     $pkrow = mysql_fetch_assoc($res);
-    $passkey = hex2bin1($passkey);
+    $passkey = hex_engine($passkey);
 
     $downloaddata = $db -> querySingleArray("SELECT id, userid, torrentid FROM downloadtickets WHERE hash = ".sqlesc($_GET['passkey']));
     if (!is_numeric($downloaddata['userid']))
