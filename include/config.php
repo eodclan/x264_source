@@ -4,7 +4,7 @@ require_once(dirname(__FILE__) . "/db_setup.php");
 * Tracker configuration
 * 
 * Please read the comments before changing anything!
-* Database configuration: see secrets.php
+* Database configuration: see db_setup.php
 **************************************************************/
 mysql_connect("$mysql_host", "$mysql_user", "$mysql_pass");
 mysql_select_db($mysql_db);
@@ -30,8 +30,8 @@ if (isset($_SERVER['HTTP_HOST']))
 {
   switch ($_SERVER['HTTP_HOST'])
   {
-    case "desource.elite-of-darkness.de":
-    case "desource.elite-of-darkness.de:443":
+    case "yourdomain.com":
+    case "yourdomain.com:443":
       $conffile = "ex1080_setup.php";
       break;
     default:
