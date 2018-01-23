@@ -283,7 +283,7 @@ echo("
                     <div class='dropdown-header text-center'>
                         <strong>Teamspeak</strong>
 		    </div>
-                    <i class='dropdown-item'>"); include("tsstatus/tsstatus_test.php"); echo("</i>
+                    <i class='dropdown-item'>"); include("tsstatus/tsstatus_viewer.php"); echo("</i>
                 </div>                    
             </li>
             <li class='nav-item dropdown hidden-md-down'>			
