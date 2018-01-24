@@ -652,8 +652,8 @@ function x264_header($title = "", $msgalert = true)
 	
     if ($CURUSER)
     {
-	include("".$GLOBALS["DESIGN_PATTERN"].$GLOBALS["ss_uri"]. "/templates/ex1080_tnavi.php");
-	include("".$GLOBALS["DESIGN_PATTERN"].$GLOBALS["ss_uri"]. "/templates/ex1080_content.php"); 
+		include("".$GLOBALS["DESIGN_PATTERN"].$GLOBALS["ss_uri"]. "/templates/ex1080_tnavi.php");
+		include("".$GLOBALS["DESIGN_PATTERN"].$GLOBALS["ss_uri"]. "/templates/ex1080_content.php"); 
     }
 }
 
@@ -704,8 +704,8 @@ function x264_admin_header($title = "", $msgalert = true)
     include("".$GLOBALS["ADMIN_BOOTSTRAP_PATTERN"]."".$GLOBALS["ss_uri"]. "/templates/ex1080_header.php");
 	
     if (get_user_class() >= UC_PARTNER) {
-	include("".$GLOBALS["ADMIN_BOOTSTRAP_PATTERN"]."".$GLOBALS["ss_uri"]. "/templates/ex1080_mnavi.php");
-	include("".$GLOBALS["ADMIN_BOOTSTRAP_PATTERN"]."".$GLOBALS["ss_uri"]. "/templates/ex1080_content.php"); 
+		include("".$GLOBALS["ADMIN_BOOTSTRAP_PATTERN"]."".$GLOBALS["ss_uri"]. "/templates/ex1080_mnavi.php");
+		include("".$GLOBALS["ADMIN_BOOTSTRAP_PATTERN"]."".$GLOBALS["ss_uri"]. "/templates/ex1080_content.php"); 
     }
 }
 
@@ -809,7 +809,6 @@ function x264_errormsg_header($title = "", $msgalert = true)
     include("".$GLOBALS["DESIGN_PATTERN"].$GLOBALS["ss_uri"]. "/templates/ex1080_errormsg_header.php");
     include("".$GLOBALS["DESIGN_PATTERN"].$GLOBALS["ss_uri"]. "/templates/ex1080_errormsg_tnavi.php");
     include("".$GLOBALS["DESIGN_PATTERN"].$GLOBALS["ss_uri"]. "/templates/ex1080_errormsg_content.php"); 
-
 }
 
 function x264_footer()
