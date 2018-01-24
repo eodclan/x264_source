@@ -26,6 +26,7 @@ chmod settings:
 4. chmod 0777 Folder/forum_attachments
 5. chmod 0777 Folder/include/templates_c
 6. chmod 0777 Folder/pic/smilies
+7. change the tsstatus_viewer.php in the tststatus folder and change your foldername: require_once("/home/your_folder/tsstatus/ts3ssv.php");
 
 Source Install:
 1. create your database
