@@ -78,11 +78,6 @@ function validip($ip='', $ip_type=''){
         $validip = filter_var($ip, FILTER_VALIDATE_IP);
     }
 
-    if($isValid == $ip){
-
-        $validip=true;
-    }
-
     return $validip;
 }
 
